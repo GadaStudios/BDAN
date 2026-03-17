@@ -36,6 +36,21 @@ export const CTASection = () => {
           className="flex flex-col gap-12 py-12 md:gap-20 md:py-14 lg:py-24"
         >
           <div className="grid grid-cols-2 gap-12 lg:grid-cols-4 lg:gap-6">
+            <div className="col-span-2 mx-auto flex items-center md:gap-6 lg:hidden">
+              <Image
+                src="/illustration/cta-illustration-1.svg"
+                alt="cta-illustration-1"
+                width={179}
+                height={176}
+              />
+              <Image
+                src="/illustration/cta-illustration-2.svg"
+                alt="cta-illustration-2"
+                width={179}
+                height={176}
+              />
+            </div>
+
             <Image
               src="/illustration/cta-illustration-1.svg"
               alt="cta-illustration-1"
@@ -66,21 +81,6 @@ export const CTASection = () => {
               height={232}
               className="hidden lg:block"
             />
-
-            <div className="col-span-2 mx-auto flex items-center md:gap-6 lg:hidden">
-              <Image
-                src="/illustration/cta-illustration-1.svg"
-                alt="cta-illustration-1"
-                width={179}
-                height={176}
-              />
-              <Image
-                src="/illustration/cta-illustration-2.svg"
-                alt="cta-illustration-2"
-                width={179}
-                height={176}
-              />
-            </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4 md:gap-8">

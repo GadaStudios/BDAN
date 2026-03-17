@@ -34,7 +34,7 @@ export const Footer = () => {
         <div className="bg-secondary">
           <Container className="flex flex-col gap-8 pt-12 pb-8 md:pt-14 lg:pt-24">
             <div className="grid gap-10 border-b border-primary-active lg:grid-cols-3">
-              <div className="col-span-2 flex flex-col gap-16">
+              <div className="col-span-2 flex flex-col gap-8 md:gap-16">
                 <div className="flex flex-col">
                   <div className="bg-[#00264D] p-6 md:p-8">
                     <div className="flex max-w-[540px] flex-col gap-4 md:gap-8">
@@ -88,6 +88,47 @@ export const Footer = () => {
                         )
                       })}
                     </div>
+                  </div>
+                </div>
+
+                <div className="hidden h-[142px] items-end justify-between md:flex">
+                  <div className="relative mt-auto h-full flex-1">
+                    <Image
+                      src="/illustration/footer-illustration-left-1.svg"
+                      alt="left-illustration-1"
+                      fill
+                    />
+                  </div>
+                  <div className="relative mt-auto h-full flex-1">
+                    <Image
+                      src="/illustration/footer-illustration-left-2.svg"
+                      alt="left-illustration-2"
+                      fill
+                    />
+                  </div>
+                  <div className="relative mt-auto h-full flex-1">
+                    <Image
+                      src="/illustration/footer-illustration-left-3.svg"
+                      alt="left-illustration-3"
+                      fill
+                    />
+                  </div>
+                  <div className="relative mt-auto h-full flex-1">
+                    <Image
+                      src="/illustration/footer-illustration-left-4.svg"
+                      alt="left-illustration-4"
+                      fill
+                    />
+                  </div>
+                </div>
+
+                <div className="flex h-[93px] md:hidden">
+                  <div className="relative mt-auto h-full flex-1">
+                    <Image
+                      src="/illustration/footer-illustration-mobile.svg"
+                      alt="left-illustration-1"
+                      fill
+                    />
                   </div>
                 </div>
               </div>
