@@ -34,8 +34,8 @@ export const ApplicationSection = () => {
   return (
     <section id="application-process" className="py-20 md:py-24 lg:py-32">
       <Container className="relative">
-        <div className="relative h-10 bg-background before:absolute before:left-[13%] before:h-full before:w-[50%] before:bg-secondary-dark md:h-16" />
-        <div className="bg-secondary-dark">
+        <div className="relative h-10 bg-background before:absolute before:left-[13%] before:h-full before:w-[50%] before:bg-secondary md:h-16" />
+        <div className="bg-secondary">
           <Container
             size="sm"
             className="flex flex-col gap-8 py-12 md:py-14 lg:py-24"
@@ -101,7 +101,7 @@ export const ApplicationSection = () => {
             </div>
           </Container>
         </div>
-        <div className="relative h-10 bg-secondary-dark before:absolute before:left-[13%] before:h-full before:w-[60%] before:bg-background md:h-16" />
+        <div className="relative h-10 bg-secondary before:absolute before:left-[13%] before:h-full before:w-[60%] before:bg-background md:h-16" />
       </Container>
     </section>
   )

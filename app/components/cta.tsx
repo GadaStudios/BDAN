@@ -28,7 +28,7 @@ const ctaOccasions = [
 
 export const CTASection = () => {
   return (
-    <section id="resources" className="pt-20 md:pt-24 lg:pt-32">
+    <section id="community" className="pt-20 md:pt-24 lg:pt-32">
       <div className="relative h-10 bg-background before:absolute before:left-[10%] before:h-full before:w-[50%] before:bg-[#F9F3E7] md:h-16" />
       <div className="bg-[#F9F3E7]">
         <Container
@@ -83,19 +83,19 @@ export const CTASection = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4 md:gap-8">
             {ctaOccasions.map((oc) => (
               <div
                 key={oc.title}
                 className={cn(
-                  "flex flex-col justify-between gap-8 px-6 py-8 md:gap-12 lg:gap-14",
+                  "flex flex-col justify-between gap-8 px-4 py-6 md:gap-12 md:px-6 md:py-8 lg:gap-14",
                   oc.style
                 )}
               >
                 <p className="text-lg font-semibold md:text-xl lg:text-2xl">
                   {oc.title}
                 </p>
-                <p className="text-base font-normal">{oc.description}</p>
+                <p className="text-sm font-normal">{oc.description}</p>
               </div>
             ))}
           </div>
