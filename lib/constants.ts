@@ -5,5 +5,5 @@ export const NAVIGATION_ROUTES = [
   { label: "Team", value: "/#teams" },
   { label: "Community", value: "/#community" },
   { label: "FAQ's", value: "/#faqs" },
-  { label: "Resources", value: "/#resource" },
+  { label: "Resources", value: "/#resources" },
 ]

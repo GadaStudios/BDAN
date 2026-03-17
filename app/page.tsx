@@ -4,6 +4,7 @@ import { ProgramSection } from "./components/program"
 import { TeamSection } from "./components/teams"
 import { ApplicationSection } from "./components/application"
 import { FAQSection } from "./components/faqs"
+import { ResourceSection } from "./components/resources"
 
 export default function Page() {
   return (
@@ -14,6 +15,7 @@ export default function Page() {
       <TeamSection />
       <ApplicationSection />
       <FAQSection />
+      <ResourceSection />
     </div>
   )
 }
