@@ -7,7 +7,7 @@
 :root {
   /* ================= PRIMARY (OFF-WHITE SCALE) ================= */
   --primary-light: #fefdfd;
-  --primary-light-hover: #fefdfb;
+  --primary-light-hover: #fefefb;
   --primary-light-active: #fdfbf8;
 
   --primary: #f9f3e7;

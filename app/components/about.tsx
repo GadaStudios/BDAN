@@ -38,12 +38,14 @@ export const AboutSection = () => {
                 <h2 className="text-3xl leading-9 text-primary-light md:text-4xl md:leading-11 lg:text-5xl lg:leading-13">
                   Designers hold the key to Bitcoin&apos;s mass adoption.
                 </h2>
-                <p className="text-primary-hover">
-                  Bitcoin Design Adoption Network (BDAN) equips designers from
-                  different design disciplines (UI/UX, graphic, motion, brand)
-                  with Bitcoin-native skills to bridge barriers, craft
-                  compelling stories, and design for financial freedom.
-                </p>
+                <div className="flex flex-col gap-6">
+                  <p className="text-primary-hover">
+                    Bitcoin Design Adoption Network (BDAN) equips designers from
+                    different design disciplines (UI/UX, graphic, motion, brand)
+                    with Bitcoin-native skills to bridge barriers, craft
+                    compelling stories, and design for financial freedom.
+                  </p>
+                </div>
               </div>
 
               <Image
@@ -59,11 +61,13 @@ export const AboutSection = () => {
                 <div
                   key={pitch.title}
                   className={cn(
-                    "flex flex-col justify-between gap-12 p-8 md:gap-14",
+                    "flex flex-col justify-between gap-8 md:gap-12 md:px-6 md:py-8 lg:gap-14",
                     pitch.style
                   )}
                 >
-                  <p className="text-2xl font-semibold">{pitch.title}</p>
+                  <p className="text-lg font-semibold md:text-xl lg:text-2xl">
+                    {pitch.title}
+                  </p>
                   <p className="text-base font-normal">{pitch.description}</p>
                 </div>
               ))}

@@ -2,6 +2,7 @@ import { HeroSection } from "./components/hero"
 import { AboutSection } from "./components/about"
 import { ProgramSection } from "./components/program"
 import { TeamSection } from "./components/teams"
+import { ApplicationSection } from "./components/application"
 
 export default function Page() {
   return (
@@ -10,6 +11,7 @@ export default function Page() {
       <AboutSection />
       <ProgramSection />
       <TeamSection />
+      <ApplicationSection />
     </div>
   )
 }
