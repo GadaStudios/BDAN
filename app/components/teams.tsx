@@ -330,7 +330,7 @@ export const TeamSection = () => {
               Meet Our Founders
             </h2>
 
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+            <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-2">
               {teamMembers.founders.map((member) => (
                 <MemberCard key={member.name} member={member} isFoundersCard />
               ))}

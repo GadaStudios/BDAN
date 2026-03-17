@@ -61,7 +61,7 @@ export const AboutSection = () => {
                 <div
                   key={pitch.title}
                   className={cn(
-                    "flex flex-col justify-between gap-8 md:gap-12 md:px-6 md:py-8 lg:gap-14",
+                    "flex flex-col justify-between gap-8 px-6 py-8 md:gap-12 lg:gap-14",
                     pitch.style
                   )}
                 >

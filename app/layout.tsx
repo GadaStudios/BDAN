@@ -4,6 +4,7 @@ import "./globals.css"
 import { fontVariables } from "@/fonts"
 import { siteConfig } from "@/config/site.config"
 import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
   title: {
@@ -52,6 +53,7 @@ export default function RootLayout(props: LayoutProps<"/">) {
       <body>
         <Header />
         <main className="flex-1">{props.children}</main>
+        <Footer />
       </body>
     </html>
   )

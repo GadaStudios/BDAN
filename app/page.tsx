@@ -5,6 +5,7 @@ import { TeamSection } from "./components/teams"
 import { ApplicationSection } from "./components/application"
 import { FAQSection } from "./components/faqs"
 import { ResourceSection } from "./components/resources"
+import { CTASection } from "./components/cta"
 
 export default function Page() {
   return (
@@ -16,6 +17,7 @@ export default function Page() {
       <ApplicationSection />
       <FAQSection />
       <ResourceSection />
+      <CTASection />
     </div>
   )
 }

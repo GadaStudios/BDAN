@@ -7,7 +7,7 @@ export const HeroSection = () => {
     <section id="home" className="py-10 md:py-24">
       <Container size="sm" className="flex flex-col gap-23">
         <div className="flex flex-col gap-4 md:gap-10 lg:flex-row">
-          <h1 className="text-[40px] leading-11 font-normal -tracking-[1.5%] text-secondary-dark md:text-[80px] md:leading-20">
+          <h1 className="text-[40px] leading-11 font-normal -tracking-[1.5%] text-secondary-dark md:text-6xl md:leading-18 lg:text-[80px] lg:leading-20">
             Unlock Bitcoin Adoption Through Design
           </h1>
           <div className="flex max-w-[426px] flex-col gap-10">

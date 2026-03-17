@@ -66,8 +66,8 @@ export const ProgramSection = () => {
             </div>
           </div>
 
-          <div className="flex flex-wrap-reverse items-end justify-between gap-12">
-            <div className="flex max-w-[421px] flex-col gap-12 md:gap-6 lg:gap-8">
+          <div className="flex flex-col-reverse items-end gap-12 lg:flex-row lg:justify-between">
+            <div className="flex flex-col gap-12 md:flex-row md:gap-6 lg:max-w-[421px] lg:flex-col lg:gap-8">
               <div className="flex flex-col gap-4">
                 <h2 className="text-[40px] leading-9 text-secondary-dark md:text-5xl md:leading-11 lg:text-5xl lg:leading-13">
                   Who Can Join
@@ -80,22 +80,25 @@ export const ProgramSection = () => {
                   potential are immense. 
                 </p>
               </div>
-              <div className="flex flex-col gap-4">
-                <h2 className="text-[40px] leading-9 text-secondary-dark md:text-5xl md:leading-11 lg:text-5xl lg:leading-13">
-                  What You Get
-                </h2>
-                <p className="text-primary-darker">
-                  Live sessions and resources, Discord community for ongoing
-                  support, Capstone project, and a network access for alumni
-                  introductions to Bitcoin projects.
-                </p>
-              </div>
 
-              <div className="flex items-center gap-8">
-                <Button variant="default" className="flex-1">
-                  Apply to Pilot Cohort
-                </Button>
-                <Button variant="outline">John Discord</Button>
+              <div className="flex flex-col gap-12 md:gap-6 lg:gap-8">
+                <div className="flex flex-col gap-4">
+                  <h2 className="text-[40px] leading-9 text-secondary-dark md:text-5xl md:leading-11 lg:text-5xl lg:leading-13">
+                    What You Get
+                  </h2>
+                  <p className="text-primary-darker">
+                    Live sessions and resources, Discord community for ongoing
+                    support, Capstone project, and a network access for alumni
+                    introductions to Bitcoin projects.
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-8">
+                  <Button variant="default" className="flex-1">
+                    Apply to Pilot Cohort
+                  </Button>
+                  <Button variant="outline">John Discord</Button>
+                </div>
               </div>
             </div>
 
@@ -104,7 +107,7 @@ export const ProgramSection = () => {
               alt="The BDAN Program"
               width={528}
               height={420}
-              className="mt-auto"
+              className="mx-auto mt-auto lg:mx-0"
             />
           </div>
         </div>
