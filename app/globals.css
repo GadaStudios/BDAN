@@ -51,7 +51,7 @@
   --accent-darker: #592100;
 
   /* ================= BASE TOKENS ================= */
-  --background: var(--primary-light);
+  --background: #ffffff;
   --foreground: var(--secondary);
 
   --card: var(--primary-light);
@@ -169,7 +169,7 @@
     @apply bg-background text-foreground;
   }
   html {
-    @apply font-delight;
+    @apply scroll-smooth font-delight;
   }
   h1,
   h2,
@@ -191,7 +191,7 @@
 }
 
 @utility display-2 {
-  @apply text-[80px] leading-23 -tracking-[1.5%];
+  @apply text-[80px] leading-20 -tracking-[1.5%];
 }
 
 @utility display-3 {

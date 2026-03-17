@@ -3,10 +3,11 @@ import type { Metadata } from "next"
 import "./globals.css"
 import { fontVariables } from "@/fonts"
 import { siteConfig } from "@/config/site.config"
+import { Header } from "@/components/header"
 
 export const metadata: Metadata = {
   title: {
-    default: siteConfig.title,
+    default: `${siteConfig.name} - ${siteConfig.title}`,
     template: `${siteConfig.name} - %s`,
   },
   description: siteConfig.description,
@@ -48,7 +49,10 @@ export default function RootLayout(props: LayoutProps<"/">) {
       suppressHydrationWarning
       className={fontVariables("font-delight antialiased")}
     >
-      <body>{props.children}</body>
+      <body>
+        <Header />
+        <main className="flex-1">{props.children}</main>
+      </body>
     </html>
   )
 }
