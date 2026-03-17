@@ -1,6 +1,7 @@
 import { HeroSection } from "./components/hero"
 import { AboutSection } from "./components/about"
 import { ProgramSection } from "./components/program"
+import { TeamSection } from "./components/teams"
 
 export default function Page() {
   return (
@@ -8,6 +9,7 @@ export default function Page() {
       <HeroSection />
       <AboutSection />
       <ProgramSection />
+      <TeamSection />
     </div>
   )
 }

@@ -25,7 +25,7 @@ const aboutPitch = [
 
 export const AboutSection = () => {
   return (
-    <section id="about" className="py-20 md:py-24 lg:py-28">
+    <section id="about" className="py-20 md:py-24 lg:py-32">
       <Container className="relative">
         <div className="relative h-10 bg-secondary-dark before:absolute before:left-[13%] before:h-full before:w-[50%] before:bg-background md:h-16" />
         <div className="bg-secondary-dark">
@@ -35,14 +35,14 @@ export const AboutSection = () => {
           >
             <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
               <div className="flex max-w-[609px] flex-col gap-4 md:gap-8">
-                <p className="text-3xl leading-9 text-primary-light md:text-4xl md:leading-11 lg:text-5xl lg:leading-13">
+                <h2 className="text-3xl leading-9 text-primary-light md:text-4xl md:leading-11 lg:text-5xl lg:leading-13">
                   Designers hold the key to Bitcoin&apos;s mass adoption.
-                </p>
+                </h2>
                 <p className="text-primary-hover">
                   Bitcoin Design Adoption Network (BDAN) equips designers from
                   different design disciplines (UI/UX, graphic, motion, brand)
                   with Bitcoin-native skills to bridge barriers, craft
-                  compelling stories, and design for financial freedom.{" "}
+                  compelling stories, and design for financial freedom.
                 </p>
               </div>
 
