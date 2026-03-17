@@ -10,7 +10,7 @@ import { Button, buttonVariants } from "@/ui/button"
 import { siteConfig } from "@/config/site.config"
 import { NAVIGATION_ROUTES } from "@/lib/constants"
 import { useResponsiveJsx } from "@/hooks/responsive"
-import { cn } from "@/lib/utils"
+import { cn, isActivePath } from "@/lib/utils"
 
 export const Header = () => {
   const pathname = usePathname()
@@ -56,21 +56,6 @@ export const Header = () => {
     return () => window.removeEventListener("hashchange", updateHash)
   }, [])
 
-  const isActivePath = (path: string) => {
-    const hasHash = hash && hash.length > 0
-
-    if (path.includes("#")) {
-      if (!hasHash) return false
-      return path.endsWith(hash)
-    }
-
-    if (path === "/") {
-      return pathname === "/" && !hasHash
-    }
-
-    return pathname.startsWith(path)
-  }
-
   return (
     <header
       className={[
@@ -96,7 +81,7 @@ export const Header = () => {
           {breakpoints >= 2 ? (
             <div className="flex items-center">
               {NAVIGATION_ROUTES.map((route) => {
-                const isActive = isActivePath(route.value)
+                const isActive = isActivePath(route.value, pathname, hash)
 
                 return (
                   <Link

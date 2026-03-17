@@ -5,20 +5,20 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export function isActivePath(path: string, pathname: string): boolean {
-  if (typeof window === "undefined") return false
+export function isActivePath(
+  path: string,
+  pathname: string,
+  hash: string
+): boolean {
+  const hasHash = hash && hash.length > 0
 
-  const hash = window.location.hash // e.g. "#about"
-
-  // Handle hash routes
   if (path.includes("#")) {
-    const [, targetHash] = path.split("#")
-    return hash === `#${targetHash}`
+    if (!hasHash) return false
+    return path.endsWith(hash)
   }
 
-  // Handle normal routes
   if (path === "/") {
-    return pathname === "/" && !hash
+    return pathname === "/" && !hasHash
   }
 
   return pathname.startsWith(path)

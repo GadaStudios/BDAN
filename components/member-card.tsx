@@ -24,23 +24,23 @@ export const MemberCard: React.FC<Props> = ({ member, isFoundersCard }) => {
     <div
       key={member.name}
       className={cn("flex flex-col", {
-        "md:flex-row md:even:flex-row-reverse": isFoundersCard,
+        "lg:flex-row lg:even:flex-row-reverse": isFoundersCard,
       })}
     >
-      <div className={cn(isFoundersCard ? "md:w-1/2" : "flex-1")}>
+      <div className={cn(isFoundersCard ? "lg:w-1/2" : "flex-1")}>
         <Image
           src={member.image}
           alt={member.name}
           height={295}
           width={isFoundersCard ? 248 : 320}
-          className="aspect-square w-full object-cover md:h-[295px] md:w-[330px]"
+          className="aspect-square w-full object-cover lg:h-[295px] lg:w-[330px]"
         />
       </div>
       <div
         className={cn(
           "flex flex-1 flex-col gap-6 border border-primary-hover bg-primary-light px-6 py-8",
           {
-            "md:w-1/2": isFoundersCard,
+            "lg:w-1/2": isFoundersCard,
           }
         )}
       >
