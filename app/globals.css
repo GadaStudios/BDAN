@@ -1,0 +1,231 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* ================= PRIMARY (OFF-WHITE SCALE) ================= */
+  --primary-light: #fefdfd;
+  --primary-light-hover: #fefdfb;
+  --primary-light-active: #fdfbf8;
+
+  --primary: #f9f3e7;
+  --primary-hover: #e0dbd0;
+  --primary-active: #c7c2b9;
+
+  --primary-dark: #bbb6ad;
+  --primary-dark-hover: #95928b;
+  --primary-dark-active: #706d68;
+
+  --primary-darker: #575551;
+
+  /* ================= SECONDARY (DARK BLUE) ================= */
+  --secondary-light: #e6e8ea;
+  --secondary-light-hover: #d9dee0;
+  --secondary-light-active: #b0b7bf;
+
+  --secondary: #00172f;
+  --secondary-hover: #00152a;
+  --secondary-active: #001226;
+
+  --secondary-dark: #001123;
+  --secondary-dark-hover: #000e1c;
+  --secondary-dark-active: #000a15;
+
+  --secondary-darker: #000810;
+
+  /* ================= ACCENT (ORANGE) ================= */
+  --accent-light: #ffefe6;
+  --accent-light-hover: #ffe7d9;
+  --accent-light-active: #ffcdb0;
+
+  --accent: #fe5e01;
+  --accent-hover: #e55501;
+  --accent-active: #cb4b01;
+
+  --accent-dark: #bf4701;
+  --accent-dark-hover: #983801;
+  --accent-dark-active: #722a00;
+
+  --accent-darker: #592100;
+
+  /* ================= BASE TOKENS ================= */
+  --background: var(--primary-light);
+  --foreground: var(--secondary);
+
+  --card: var(--primary-light);
+  --card-foreground: var(--secondary);
+
+  --popover: var(--primary-light);
+  --popover-foreground: var(--secondary);
+
+  --primary-foreground: var(--accent-light);
+
+  --secondary-foreground: var(--secondary);
+
+  --muted: var(--primary-light-hover);
+  --muted-foreground: var(--primary-dark-active);
+
+  --accent-foreground: var(--accent-active);
+
+  --destructive: var(--accent-active);
+
+  --border: var(--primary-hover);
+  --input: var(--primary-hover);
+
+  --ring: var(--accent);
+}
+
+@theme inline {
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+
+  /* ================= PRIMARY ================= */
+  --color-primary-light: var(--primary-light);
+  --color-primary-light-hover: var(--primary-light-hover);
+  --color-primary-light-active: var(--primary-light-active);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
+
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-dark-hover: var(--primary-dark-hover);
+  --color-primary-dark-active: var(--primary-dark-active);
+
+  --color-primary-darker: var(--primary-darker);
+
+  /* ================= SECONDARY ================= */
+  --color-secondary-light: var(--secondary-light);
+  --color-secondary-light-hover: var(--secondary-light-hover);
+  --color-secondary-light-active: var(--secondary-light-active);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-active: var(--secondary-active);
+
+  --color-secondary-dark: var(--secondary-dark);
+  --color-secondary-dark-hover: var(--secondary-dark-hover);
+  --color-secondary-dark-active: var(--secondary-dark-active);
+
+  --color-secondary-darker: var(--secondary-darker);
+
+  /* ================= ACCENT ================= */
+  --color-accent-light: var(--accent-light);
+  --color-accent-light-hover: var(--accent-light-hover);
+  --color-accent-light-active: var(--accent-light-active);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-active: var(--accent-active);
+
+  --color-accent-dark: var(--accent-dark);
+  --color-accent-dark-hover: var(--accent-dark-hover);
+  --color-accent-dark-active: var(--accent-dark-active);
+
+  --color-accent-darker: var(--accent-darker);
+
+  /* ================= OTHERS ================= */
+  --radius: 0rem;
+
+  --font-delight: var(--font-delight);
+  --font-anton: var(--font-anton);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-delight;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-anton;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@utility display-1 {
+  @apply text-[104px] leading-23 -tracking-[1.5%];
+}
+
+@utility display-2 {
+  @apply text-[80px] leading-23 -tracking-[1.5%];
+}
+
+@utility display-3 {
+  @apply text-[64px] leading-23 -tracking-[1.5%];
+}
+
+@utility header-1 {
+  @apply text-5xl leading-14 -tracking-[0.75%];
+}
+
+@utility header-2 {
+  @apply text-4xl leading-11 -tracking-[0.5%];
+}
+
+@utility header-3 {
+  @apply text-[32px] leading-[38px] -tracking-[0.25%];
+}
+
+@utility header-4 {
+  @apply text-2xl leading-9.5;
+}
+
+@utility body-1 {
+  @apply text-lg;
+}
+
+@utility body-2 {
+  @apply text-base;
+}
+
+@utility body-3 {
+  @apply text-sm;
+}
+
+@utility body-4 {
+  @apply text-xs;
+}
