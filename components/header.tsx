@@ -10,7 +10,7 @@ import { Button, buttonVariants } from "@/ui/button"
 import { siteConfig } from "@/config/site.config"
 import { NAVIGATION_ROUTES } from "@/lib/constants"
 import { useResponsiveJsx } from "@/hooks/responsive"
-import { cn, isActivePath } from "@/lib/utils"
+import { isActivePath } from "@/lib/utils"
 
 export const Header = () => {
   const pathname = usePathname()
@@ -19,6 +19,7 @@ export const Header = () => {
   const lastScrollY = React.useRef<number>(0)
   const [hash, setHash] = React.useState<string>("")
   const [visible, setVisible] = React.useState<boolean>(true)
+  const [showMenu, setShowMenu] = React.useState<boolean>(false)
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -65,7 +66,7 @@ export const Header = () => {
       ].join(" ")}
     >
       <Container>
-        <div className="flex h-8 items-center justify-between gap-4 md:h-[48px]">
+        <nav className="flex h-8 items-center justify-between gap-4 md:h-[48px]">
           <Link href="/">
             <Image
               src="/favicon.svg"
@@ -111,14 +112,17 @@ export const Header = () => {
           ) : (
             breakpoints <= 1 && (
               <div className="flex items-center">
-                <Button variant="ghost" size="icon-sm">
+                <Button
+                  variant="ghost"
+                  size="icon-sm"
+                  className=""
+                  onClick={() => setShowMenu(!showMenu)}
+                >
                   <svg
-                    width="24"
-                    height="16"
                     viewBox="0 0 24 16"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    className="size-6"
+                    className="size-5"
                   >
                     <path
                       d="M0 16V13.3333H24V16H0ZM12 9.33333V6.66667H24V9.33333H12ZM5.33333 2.66667V0H24V2.66667H5.33333Z"
@@ -129,27 +133,40 @@ export const Header = () => {
               </div>
             )
           )}
-          {/* {breakpoints === 0 && (
-            <Button variant="ghost" size="sm">
-              Mobile View
-            </Button>
-          )}
-          {breakpoints === 1 && (
-            <Button variant="ghost" size="sm">
-              Tablet View
-            </Button>
-          )}
-          {breakpoints === 2 && (
-            <Button variant="ghost" size="sm">
-              Desktop View
-            </Button>
-          )}
-          {breakpoints === 3 && (
-            <Button variant="ghost" size="sm">
-              LargeDesktop View
-            </Button>
-          )} */}
-        </div>
+        </nav>
+
+        {breakpoints <= 1 && showMenu && (
+          <nav className="absolute top-full left-0 w-full bg-background">
+            <div className="flex flex-col border border-[#B860AC33] bg-[#F9F3E7] p-5 md:p-8">
+              {NAVIGATION_ROUTES.map((route) => {
+                const isActive = isActivePath(route.value, pathname, hash)
+
+                return (
+                  <Link
+                    key={route.label}
+                    href={route.value as Route}
+                    onClick={() => {
+                      setShowMenu(!showMenu)
+                      if (route.value.includes("#")) {
+                        const [, h] = route.value.split("#")
+                        setHash(`#${h}`)
+                      } else {
+                        setHash("")
+                      }
+                    }}
+                    className={buttonVariants({
+                      variant: isActive ? "default" : "ghost",
+                      size: "sm",
+                      className: "w-full justify-start shadow-none",
+                    })}
+                  >
+                    {route.label}
+                  </Link>
+                )
+              })}
+            </div>
+          </nav>
+        )}
       </Container>
     </header>
   )

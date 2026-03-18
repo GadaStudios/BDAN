@@ -34,7 +34,7 @@ export const Footer = () => {
         <div className="bg-secondary">
           <Container className="flex flex-col gap-8 pt-12 pb-8 md:pt-14 lg:pt-24">
             <div className="grid gap-10 border-b border-primary-active lg:grid-cols-3">
-              <div className="col-span-2 flex flex-col gap-8 md:gap-16">
+              <div className="col-span-2 flex flex-col justify-between gap-8 md:gap-8">
                 <div className="flex flex-col">
                   <div className="bg-[#00264D] p-6 md:p-8">
                     <div className="flex max-w-[540px] flex-col gap-4 md:gap-8">

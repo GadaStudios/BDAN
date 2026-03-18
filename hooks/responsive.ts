@@ -17,3 +17,12 @@ export function useResponsiveJsx(breakpoints: Array<number>): number {
 
   return index
 }
+
+/**
+ * const breakpoints = useResponsiveJsx([600, 900, 1200])
+ *
+ * breakpoints === 0 for Mobile view
+ * breakpoints === 1 for Tablet view
+ * breakpoints === 2 for Desktop View
+ * breakpoints === 3 for Large Desktop View
+ */
