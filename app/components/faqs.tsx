@@ -15,43 +15,44 @@ const faqs = [
   {
     question: "How much does the pilot cohort cost?",
     answer:
-      "The program is open to all undergraduate and graduate students with a passion for decentralized innovation. Applicants must be 18 or older, motivated to learn, and committed to the program’s mission.",
+      "The cohort is free. We want to focus purely on the quality of participants and building a strong founding network.",
   },
   {
     question: "How much time will the program really take?",
     answer:
-      "The program lasts approximately 2.5 months, from June 1 to August 15, depending on the project and location.",
+      "Expect 5–10 hours per week for 12 weeks. The structure is designed to be doable even if you have a full-time job or freelance clients. It is a mix of live sessions and asynchronous materials, with very flexible deadlines on most deliverables. The design challenge and capstone project are the biggest time blocks.",
   },
   {
     question: "Is BDAN only for Africans?",
     answer:
-      "Yes! All expenses for travel, accommodation, and food are fully covered.",
+      "Right now, yes. The pilot cohort is Africa-focused. We’re intentionally starting with designers from across the continent to build momentum, shared context, and strong regional roots in the Bitcoin ecosystem. All African nationalities are welcome and encouraged to apply. Future cohorts will open more broadly, especially within the Global South.",
   },
   {
     question: "Why is the pilot limited to Africans?",
     answer:
-      "Participants will work in global locations where decentralized solutions can have the most impact. Assignments will align with community needs and participant preferences.",
+      "We’re launching BDAN, where Bitcoin adoption is accelerating fastest and where talented designers are often underrepresented in global programs. By starting Africa-first, we build a strong, culturally-aligned founding network that can later scale globally.",
   },
   {
     question: "What happens after the program ends?",
-    answer:
-      "Projects include financial literacy education, supporting decentralized tech adoption, and community development initiatives. Specific assignments depend on local needs.",
-  },
-  {
-    question: "Will I get a certificate or some kind of credential at the end?",
-    answer:
-      "Multilingual skills are a plus, but basic English and translation tools are sufficient for most assignments.",
+    answer: "You become part of the permanent BDAN network. That means:",
+    lists: [
+      "Ongoing access to the community & Discord",
+      "Alumni-only channels and opportunities",
+      "Chance to collaborate on real Bitcoin projects",
+      "Portfolio pieces + capstone project you can proudly show",
+      "Introductions/connections to Bitcoin-native teams (when opportunities appear)",
+    ],
   },
   {
     question:
       "I’m more of a (graphic designer/motion designer/brand designer). Is this program still for me?",
     answer:
-      "Participants should be adaptable, tech-savvy, and passionate about global collaboration. Strong communication and problem-solving skills are essential.",
+      "Yes! 100%. We have specialized tracks exactly because different design disciplines bring different superpowers to Bitcoin adoption.",
   },
   {
     question: "How selective is the application process really?",
     answer:
-      'Visit the "Apply Now" page, complete the application form, and submit a motivation letter.',
+      "Very. We’re looking for conviction, skill, and curiosity. We would rather have 12–18 incredible designers than 40 average ones. The quality of the first cohort equals the quality of the whole network.",
   },
 ]
 
