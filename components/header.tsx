@@ -18,7 +18,7 @@ export const Header = () => {
 
   const lastScrollY = React.useRef<number>(0)
   const [hash, setHash] = React.useState<string>("")
-  const [visible, setVisible] = React.useState<boolean>(true)
+  const [adjust, setAdjust] = React.useState<boolean>(true)
   const [showMenu, setShowMenu] = React.useState<boolean>(false)
 
   React.useEffect(() => {
@@ -30,15 +30,15 @@ export const Header = () => {
 
       if (currentScrollY < lastScrollY.current) {
         // scrolling up → show
-        setVisible(true)
+        setAdjust(true)
       } else {
         // scrolling down → hide
-        setVisible(false)
+        setAdjust(false)
       }
 
       // always show near top
       if (currentScrollY < 100) {
-        setVisible(true)
+        setAdjust(true)
       }
 
       lastScrollY.current = currentScrollY
@@ -58,13 +58,7 @@ export const Header = () => {
   }, [])
 
   return (
-    <header
-      className={[
-        "sticky top-0 left-0 z-50 w-full bg-background/90 py-6 backdrop-blur-md md:py-12",
-        "transition-transform duration-300 ease-in-out",
-        visible ? "translate-y-0" : "-translate-y-full",
-      ].join(" ")}
-    >
+    <header className="sticky top-0 left-0 z-50 w-full bg-background/90 py-6 backdrop-blur-md md:py-8">
       <Container>
         <nav className="flex h-8 items-center justify-between gap-4 md:h-[48px]">
           <Link href="/">

@@ -43,7 +43,7 @@ function AccordionTrigger({
         )}
         {...props}
       >
-        <div className="max-w-[714px]">{children}</div>
+        <div className="max-w-[761px]">{children}</div>
         <SquareMinus
           data-slot="accordion-trigger-icon"
           className="pointer-events-none size-6! shrink-0 text-accent! group-aria-expanded/accordion-trigger:hidden"
