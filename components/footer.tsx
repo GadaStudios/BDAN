@@ -14,6 +14,28 @@ import { siteConfig } from "@/config/site.config"
 import { RiTwitterXLine } from "react-icons/ri"
 import { FaGithub } from "react-icons/fa6"
 
+const footerSocials = [
+  {
+    title: "Discord",
+    icon: FaDiscord,
+    url: "https://discord.gg/j2TceZg45e",
+  },
+  {
+    title: "Twitter",
+    icon: RiTwitterXLine,
+    url: "https://x.com/BDAN_Bitcoin",
+  },
+  {
+    title: "YouTube",
+    icon: FaYoutube,
+  },
+  {
+    title: "Github",
+    icon: FaGithub,
+    url: "https://github.com/GadaStudios/BDAN",
+  },
+]
+
 export const Footer = () => {
   const pathname = usePathname()
   const [hash, setHash] = React.useState<string>("")
@@ -148,10 +170,19 @@ export const Footer = () => {
               </p>
 
               <div className="flex items-center gap-4">
-                <FaDiscord className="size-6 text-accent" />
-                <RiTwitterXLine className="size-6 text-accent" />
-                <FaYoutube className="size-6 text-accent" />
-                <FaGithub className="size-6 text-accent" />
+                {footerSocials.map((social) => {
+                  const Comp = social.url ? Link : "span"
+                  return (
+                    <Comp
+                      key={social.title}
+                      href={social.url as Route}
+                      title={social.title}
+                      target="_blank"
+                    >
+                      <social.icon className="size-6 text-accent" />
+                    </Comp>
+                  )
+                })}
               </div>
             </div>
           </Container>

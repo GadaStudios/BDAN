@@ -97,7 +97,8 @@ export const ProgramSection = () => {
 
                 <div className="flex items-center gap-8">
                   <Link
-                    href="/#application-process"
+                    target="_blank"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSfpP2qCe3th-R9550jbKRukFuvdk7g50OQlZeaLdTQ63XfkgQ/viewform?usp=publish-editor"
                     className={buttonVariants({
                       className: "flex-1",
                       variant: "default",
@@ -105,7 +106,15 @@ export const ProgramSection = () => {
                   >
                     Apply to Pilot Cohort
                   </Link>
-                  <Button variant="outline">John Discord</Button>
+                  <Link
+                    target="_blank"
+                    href="https://discord.gg/j2TceZg45e"
+                    className={buttonVariants({
+                      variant: "outline",
+                    })}
+                  >
+                    John Discord
+                  </Link>
                 </div>
               </div>
             </div>

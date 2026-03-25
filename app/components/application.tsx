@@ -1,6 +1,8 @@
+"use client"
 import Image from "next/image"
 import { Container } from "@/components/container"
-import { Button } from "@/ui/button"
+import { Button, buttonVariants } from "@/ui/button"
+import Link from "next/link"
 
 const applicationProcess = [
   {
@@ -93,9 +95,26 @@ export const ApplicationSection = () => {
                   design tracks.
                 </p>
 
-                <div className="flex max-w-[231px] flex-col gap-4">
-                  <Button variant="outline">See Design Challenge</Button>
-                  <Button variant="default">Apply to Pilot Cohort</Button>
+                <div className="max-w-[231px] space-y-4">
+                  <Link
+                    target="_blank"
+                    href="https://docs.google.com/document/d/1XAgCP3JlSYTF58ZiBVQ4MWl2A_tZkJ1nzpM12ANgoUw/edit?usp=sharing"
+                    className={buttonVariants({
+                      variant: "outline",
+                    })}
+                  >
+                    See Design Challenge
+                  </Link>
+                  <Link
+                    target="_blank"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSfpP2qCe3th-R9550jbKRukFuvdk7g50OQlZeaLdTQ63XfkgQ/viewform?usp=publish-editor"
+                    className={buttonVariants({
+                      className: "flex-1",
+                      variant: "default",
+                    })}
+                  >
+                    Apply to Pilot Cohort
+                  </Link>
                 </div>
               </div>
             </div>
