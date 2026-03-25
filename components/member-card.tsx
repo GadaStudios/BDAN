@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils"
+import { Button } from "@/ui/button"
 import Image from "next/image"
 import React from "react"
 
@@ -27,13 +28,19 @@ export const MemberCard: React.FC<Props> = ({ member, isFoundersCard }) => {
         "lg:flex-row lg:even:flex-row-reverse": isFoundersCard,
       })}
     >
-      <div className={cn(isFoundersCard ? "lg:w-1/2" : "flex-1")}>
+      <div
+        className={cn(
+          "relative aspect-square overflow-hidden bg-red-500 lg:aspect-auto",
+          !isFoundersCard ? "lg:h-[295px]" : "lg:w-1/2"
+        )}
+      >
         <Image
           src={member.image}
           alt={member.name}
-          height={295}
-          width={isFoundersCard ? 248 : 320}
-          className="aspect-square w-full object-cover lg:h-[295px] lg:w-[330px]"
+          fill
+          quality={100}
+          loading="lazy"
+          className="size-full object-cover lg:scale-105"
         />
       </div>
       <div
@@ -57,14 +64,16 @@ export const MemberCard: React.FC<Props> = ({ member, isFoundersCard }) => {
           <span>{member.bio}</span>
         </p>
 
-        <footer className="mt-auto flex items-center gap-6">
+        <footer className="mt-auto flex items-center gap-3">
           {member.socials.map((social: MemberSocial) => (
-            <div
+            <Button
               key={social.name}
-              className="flex size-8 items-center justify-center border border-accent bg-white"
+              size="icon-sm"
+              variant="outline"
+              className="size-9! shadow-none!"
             >
               <social.icon className="size-5 fill-foreground" />
-            </div>
+            </Button>
           ))}
         </footer>
       </div>

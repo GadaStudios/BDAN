@@ -94,8 +94,8 @@ export const ApplicationSection = () => {
                 </p>
 
                 <div className="flex max-w-[231px] flex-col gap-4">
-                  <Button variant="default">Apply to Pilot Cohort</Button>
                   <Button variant="outline">See Design Challenge</Button>
+                  <Button variant="default">Apply to Pilot Cohort</Button>
                 </div>
               </div>
             </div>

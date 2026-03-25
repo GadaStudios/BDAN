@@ -1,7 +1,9 @@
+"use client"
 import { Container } from "@/components/container"
 import { cn } from "@/lib/utils"
-import { Button } from "@/ui/button"
+import { Button, buttonVariants } from "@/ui/button"
 import Image from "next/image"
+import Link from "next/link"
 
 const programWeeksInfo = [
   {
@@ -94,9 +96,15 @@ export const ProgramSection = () => {
                 </div>
 
                 <div className="flex items-center gap-8">
-                  <Button variant="default" className="flex-1">
+                  <Link
+                    href="/#application-process"
+                    className={buttonVariants({
+                      className: "flex-1",
+                      variant: "default",
+                    })}
+                  >
                     Apply to Pilot Cohort
-                  </Button>
+                  </Link>
                   <Button variant="outline">John Discord</Button>
                 </div>
               </div>

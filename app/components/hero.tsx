@@ -1,5 +1,7 @@
+"use client"
+import Link from "next/link"
 import Image from "next/image"
-import { Button } from "@/ui/button"
+import { Button, buttonVariants } from "@/ui/button"
 import { Container } from "@/components/container"
 
 export const HeroSection = () => {
@@ -18,9 +20,15 @@ export const HeroSection = () => {
             </p>
 
             <div className="flex items-center gap-8">
-              <Button variant="default" className="flex-1">
+              <Link
+                href="/#application-process"
+                className={buttonVariants({
+                  className: "flex-1",
+                  variant: "default",
+                })}
+              >
                 Apply to Pilot Cohort
-              </Button>
+              </Link>
               <Button variant="outline">John Discord</Button>
             </div>
           </div>

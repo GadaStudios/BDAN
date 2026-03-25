@@ -6,12 +6,12 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center rounded-md border border-transparent bg-clip-padding whitespace-nowrap transition-all duration-50 outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "group/button inline-flex shrink-0 items-center justify-center rounded-md border border-transparent bg-clip-padding whitespace-nowrap transition-all duration-100 outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
         default:
-          "border-accent bg-accent text-primary shadow-[4px_8px_0_0_#000000] hover:border-accent-hover hover:bg-accent-hover hover:shadow-none active:border-accent-active active:bg-accent-active active:shadow-none disabled:border-primary disabled:bg-primary disabled:text-[#c5c7b7] disabled:shadow-none",
+          "border-accent! bg-accent text-primary shadow-[4px_8px_0_0_#000000] hover:border-accent-hover hover:bg-accent-hover hover:shadow-none active:border-accent-active active:bg-accent-active active:shadow-none disabled:border-primary disabled:bg-primary disabled:text-[#c5c7b7] disabled:shadow-none",
         outline:
           "border-accent bg-background text-accent shadow-[4px_8px_0_0_#000000] hover:bg-accent-light-hover hover:shadow-none active:bg-accent-light-active active:shadow-none disabled:border-primary-dark disabled:bg-primary-light-active disabled:text-[#c5c7b7] disabled:shadow-none",
         ghost:
