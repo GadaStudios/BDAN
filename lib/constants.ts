@@ -7,3 +7,5 @@ export const NAVIGATION_ROUTES = [
   { label: "FAQ's", value: "/#faqs" },
   { label: "Resources", value: "/#resources" },
 ]
+
+export const TARGET_DATE = new Date("2026-04-26T00:00:00")

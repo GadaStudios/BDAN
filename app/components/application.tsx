@@ -3,6 +3,8 @@ import Image from "next/image"
 import { Container } from "@/components/container"
 import { Button, buttonVariants } from "@/ui/button"
 import Link from "next/link"
+import { Countdown } from "@/components/countdown"
+import { cn } from "@/lib/utils"
 
 const applicationProcess = [
   {
@@ -69,52 +71,88 @@ export const ApplicationSection = () => {
                 loading="lazy"
               />
             </div>
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {applicationProcess.map((process, index) => (
-                <div
-                  key={process.title}
-                  className="flex flex-col justify-between gap-8 bg-[#F9F3E7] px-6 py-8 text-secondary-dark md:gap-12 lg:gap-14"
-                >
-                  <div className="flex h-[77px] w-[58px] items-center justify-center border border-primary-dark-hover">
-                    <p className="text-2xl font-semibold">{index + 1}</p>
-                  </div>
-                  <div className="flex flex-col gap-8">
-                    <p className="text-lg font-semibold md:text-xl lg:text-2xl">
-                      {process.title}
-                    </p>
-                    <p className="text-base font-normal">
-                      {process.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-              <div className="flex flex-col justify-between gap-8 bg-[#5C4BDE] px-6 py-8 text-primary-light-hover md:gap-12 lg:gap-14">
-                <p className="text-base font-normal">
-                  First Cohort starts on the 6th of April, 2026. The application
-                  is free, and only limited spots are available across different
-                  design tracks.
-                </p>
 
-                <div className="max-w-[231px] space-y-4">
-                  <Link
-                    target="_blank"
-                    href="https://docs.google.com/document/d/1XAgCP3JlSYTF58ZiBVQ4MWl2A_tZkJ1nzpM12ANgoUw/edit?usp=sharing"
-                    className={buttonVariants({
-                      variant: "outline",
-                    })}
+            <div className="flex flex-col gap-8">
+              {/* First 3 items */}
+              <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+                {applicationProcess.slice(0, 3).map((process, index) => (
+                  <div
+                    key={process.title}
+                    className="flex flex-col justify-between gap-8 bg-[#F9F3E7] px-6 py-8 text-secondary-dark md:gap-12 lg:gap-14"
                   >
-                    See Design Challenge
-                  </Link>
-                  <Link
-                    target="_blank"
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSfpP2qCe3th-R9550jbKRukFuvdk7g50OQlZeaLdTQ63XfkgQ/viewform?usp=publish-editor"
-                    className={buttonVariants({
-                      className: "flex-1",
-                      variant: "default",
-                    })}
+                    <div className="flex h-[77px] w-max items-center justify-center border border-primary-dark-hover p-6">
+                      <p className="text-2xl font-semibold">{index + 1}</p>
+                    </div>
+
+                    <div className="flex flex-col gap-8">
+                      <p className="text-lg font-semibold md:text-xl lg:text-2xl">
+                        {process.title}
+                      </p>
+                      <p className="text-base font-normal">
+                        {process.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Last 2 items */}
+              <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+                {applicationProcess.slice(3).map((process, index) => (
+                  <div
+                    key={process.title}
+                    className="flex flex-col justify-between gap-8 bg-[#F9F3E7] px-6 py-8 text-secondary-dark md:gap-12 lg:gap-14"
                   >
-                    Apply to Pilot Cohort
-                  </Link>
+                    <div className="flex h-[77px] w-max items-center justify-center border border-primary-dark-hover p-6">
+                      <p className="text-2xl font-semibold">{index + 4}</p>
+                    </div>
+
+                    <div className="flex flex-col gap-8">
+                      <p className="text-lg font-semibold md:text-xl lg:text-2xl">
+                        {process.title}
+                      </p>
+                      <p className="text-base font-normal">
+                        {process.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap items-center justify-between gap-8 bg-[#5C4BDE] p-6 text-primary-light-hover md:gap-12 md:p-8 lg:gap-14">
+                <div className="flex w-max flex-col gap-4">
+                  <p className="text-lg font-medium md:text-xl lg:text-2xl">
+                    Application Deadline!
+                  </p>
+                  <Countdown />
+                </div>
+                <div className="flex max-w-[495px] flex-col gap-8">
+                  <p className="text-base font-normal">
+                    First Cohort starts on the 6th of April, 2026. The
+                    application is free, and only limited spots are available
+                    across different design tracks.
+                  </p>
+
+                  <div className="flex flex-wrap gap-4">
+                    <Link
+                      target="_blank"
+                      href="https://docs.google.com/document/d/1XAgCP3JlSYTF58ZiBVQ4MWl2A_tZkJ1nzpM12ANgoUw/edit?usp=sharing"
+                      className={buttonVariants({
+                        variant: "outline",
+                      })}
+                    >
+                      See Design Challenge
+                    </Link>
+                    <Link
+                      target="_blank"
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSfpP2qCe3th-R9550jbKRukFuvdk7g50OQlZeaLdTQ63XfkgQ/viewform?usp=publish-editor"
+                      className={buttonVariants({
+                        variant: "default",
+                      })}
+                    >
+                      Apply to Pilot Cohort
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

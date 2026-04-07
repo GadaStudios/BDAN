@@ -95,7 +95,7 @@ export const ProgramSection = () => {
                   </p>
                 </div>
 
-                <div className="flex items-center gap-8">
+                <div className="flex items-center gap-4 sm:gap-6 md:gap-8">
                   <Link
                     target="_blank"
                     href="https://docs.google.com/forms/d/e/1FAIpQLSfpP2qCe3th-R9550jbKRukFuvdk7g50OQlZeaLdTQ63XfkgQ/viewform?usp=publish-editor"

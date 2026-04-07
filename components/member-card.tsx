@@ -30,7 +30,7 @@ export const MemberCard: React.FC<Props> = ({ member, isFoundersCard }) => {
     >
       <div
         className={cn(
-          "relative aspect-square overflow-hidden bg-red-500 lg:aspect-auto",
+          "relative aspect-square overflow-hidden bg-secondary lg:aspect-auto",
           !isFoundersCard ? "lg:h-[295px]" : "lg:w-1/2"
         )}
       >
