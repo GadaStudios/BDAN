@@ -18,7 +18,7 @@ export const Header = () => {
 
   const { isExpired } = useCountdown(TARGET_DATE)
   const [hash, setHash] = React.useState<string>("")
-  const [showMenu, setShowMenu] = React.useState<boolean>(true)
+  const [showMenu, setShowMenu] = React.useState<boolean>(false)
 
   React.useEffect(() => {
     const updateHash = () => setHash(window.location.hash)
