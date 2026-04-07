@@ -119,7 +119,7 @@ export const ApplicationSection = () => {
                 ))}
               </div>
 
-              <div className="flex flex-wrap items-center justify-between gap-8 bg-[#5C4BDE] p-6 text-primary-light-hover md:gap-12 md:p-8 lg:gap-14">
+              <div className="flex flex-wrap items-center justify-between gap-8 bg-[#5C4BDE] px-6 py-8 text-primary-light-hover md:gap-12 lg:gap-14">
                 <div className="flex w-max flex-col gap-4">
                   <p className="text-lg font-medium md:text-xl lg:text-2xl">
                     Application Deadline!

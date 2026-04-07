@@ -16,10 +16,10 @@ export const Countdown = () => {
         { label: "Seconds", value: seconds },
       ].map((item) => (
         <div key={item.label} className="flex flex-col text-center">
-          <h1 className="text-4xl leading-none font-medium sm:text-[40px] md:text-5xl">
+          <h1 className="text-3xl leading-none font-medium sm:text-4xl md:text-[40px] lg:text-5xl">
             {format(item.value)}
           </h1>
-          <p className="text-sm leading-none font-medium text-accent-light-active sm:text-base md:text-lg">
+          <p className="text-xs leading-none font-medium text-accent-light-active sm:text-sm md:text-base lg:text-lg">
             {item.label}
           </p>
         </div>
