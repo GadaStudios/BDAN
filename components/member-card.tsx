@@ -1,22 +1,13 @@
+import { TeamMember } from "@/app/components/teams"
 import { cn } from "@/lib/utils"
-import { Button } from "@/ui/button"
+import { buttonVariants } from "@/ui/button"
+import { Route } from "next"
 import Image from "next/image"
+import Link from "next/link"
 import React from "react"
 
-interface MemberSocial {
-  name: string
-  handle: string
-  icon: (props: React.SVGProps<SVGSVGElement>) => React.JSX.Element
-}
-
 interface Props {
-  member: {
-    name: string
-    designation: string
-    bio: string
-    image: string
-    socials: MemberSocial[]
-  }
+  member: TeamMember
   isFoundersCard?: boolean
 }
 
@@ -65,16 +56,24 @@ export const MemberCard: React.FC<Props> = ({ member, isFoundersCard }) => {
         </p>
 
         <footer className="mt-auto flex items-center gap-3">
-          {member.socials.map((social: MemberSocial) => (
-            <Button
-              key={social.name}
-              size="icon-sm"
-              variant="outline"
-              className="size-9! shadow-none!"
-            >
-              <social.icon className="size-5 fill-foreground" />
-            </Button>
-          ))}
+          {member?.socials?.map((social) => {
+            const Comp = social.handle ? Link : "span"
+
+            return (
+              <Comp
+                target="_blank"
+                key={social.name}
+                href={social.handle as Route}
+                className={buttonVariants({
+                  size: "icon-sm",
+                  variant: "outline",
+                  className: "size-9! shadow-none!",
+                })}
+              >
+                <social.icon className="size-5 fill-foreground" />
+              </Comp>
+            )
+          })}
         </footer>
       </div>
     </div>

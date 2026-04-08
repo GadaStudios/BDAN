@@ -2,7 +2,24 @@ import { Container } from "@/components/container"
 import { MemberCard } from "@/components/member-card"
 import React, { SVGProps } from "react"
 
-const teamMembers = {
+export type TeamMember = {
+  name: string
+  designation: string
+  bio: string
+  image: string
+  socials?: {
+    name: string
+    handle: string
+    icon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element
+  }[]
+}
+
+export type TeamMemberSection = {
+  founders: TeamMember[]
+  boardMembers?: TeamMember[]
+}
+
+const teamMembers: TeamMemberSection = {
   founders: [
     {
       name: "Umar Salihu",
@@ -40,7 +57,7 @@ const teamMembers = {
         },
         {
           name: "Nostr",
-          handle: "https://wtfisthislink.com",
+          handle: "https://wtfisthisplatform.com",
           icon: (props: SVGProps<SVGSVGElement>) => (
             <svg
               {...props}
@@ -110,7 +127,7 @@ const teamMembers = {
         },
         {
           name: "Nostr",
-          handle: "https://wtfisthislink.com",
+          handle: "https://wtfisthisplatform.com",
           icon: (props: SVGProps<SVGSVGElement>) => (
             <svg
               {...props}
@@ -182,7 +199,7 @@ const teamMembers = {
   //       },
   //       {
   //         name: "Nostr",
-  //         handle: "https://wtfisthislink.com",
+  //         handle: "https://wtfisthisplatform.com",
   //         icon: (props: SVGProps<SVGSVGElement>) => (
   //           <svg
   //             {...props}
@@ -252,7 +269,7 @@ const teamMembers = {
   //       },
   //       {
   //         name: "Nostr",
-  //         handle: "https://wtfisthislink.com",
+  //         handle: "https://wtfisthisplatform.com",
   //         icon: (props: SVGProps<SVGSVGElement>) => (
   //           <svg
   //             {...props}
@@ -322,7 +339,7 @@ const teamMembers = {
   //       },
   //       {
   //         name: "Nostr",
-  //         handle: "https://wtfisthislink.com",
+  //         handle: "https://wtfisthisplatform.com",
   //         icon: (props: SVGProps<SVGSVGElement>) => (
   //           <svg
   //             {...props}
@@ -377,17 +394,20 @@ export const TeamSection = (
               ))}
             </div>
           </div>
-          {/* <div className="flex flex-col gap-12 md:gap-14 lg:gap-16">
-            <h2 className="text-4xl leading-9 text-secondary-dark md:text-5xl md:leading-11 lg:text-[64px] lg:leading-13">
-              Advisory Board Members
-            </h2>
 
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 lg:grid-cols-3">
-              {teamMembers.boardMembers.map((member) => (
-                <MemberCard key={member.name} member={member} />
-              ))}
+          {teamMembers.boardMembers && (
+            <div className="flex flex-col gap-12 md:gap-14 lg:gap-16">
+              <h2 className="text-4xl leading-9 text-secondary-dark md:text-5xl md:leading-11 lg:text-[64px] lg:leading-13">
+                Advisory Board Members
+              </h2>
+
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 lg:grid-cols-3">
+                {teamMembers.boardMembers.map((member) => (
+                  <MemberCard key={member.name} member={member} />
+                ))}
+              </div>
             </div>
-          </div> */}
+          )}
         </div>
       </Container>
     </section>

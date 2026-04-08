@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Route } from "next"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { GoMegaphone } from "react-icons/go"
+import { BsMegaphone } from "react-icons/bs"
 
 import { cn } from "@/lib/utils"
 import { Container } from "./container"
@@ -54,12 +54,12 @@ export const Header = () => {
           <Link
             href="/#application-process"
             onClick={(e) => handleRouteItem(e, "/#application-process")}
-            className="flex h-22 flex-1 flex-col items-start justify-center gap-4 bg-secondary px-6 py-4 md:flex-row md:items-center"
+            className="flex h-22 flex-1 flex-col items-start justify-center gap-4 bg-secondary px-4 py-4 md:flex-row md:items-center md:px-6"
           >
             <div className="flex items-start gap-3">
-              <GoMegaphone className="mt-0.5 size-4 text-accent-light-active" />
+              <BsMegaphone className="mt-0.5 size-4 text-accent-light-active md:mt-1" />
 
-              <p className="flex-1 text-xs font-medium text-primary-hover sm:text-sm sm:font-light md:text-base">
+              <p className="flex-1 text-[12.5px] font-medium text-primary-hover sm:text-sm sm:font-light md:text-base">
                 Applications for the pilot cohort are now open and closes on
                 April 26th, 2026. The cohort kicks off on May 11th.
               </p>
@@ -85,8 +85,8 @@ export const Header = () => {
       >
         <nav
           className={cn(
-            "flex h-22 items-center justify-center border-b border-b-border/40 bg-background md:border-transparent",
-            showMenu && "border-b-transparent bg-primary"
+            "flex h-22 items-center justify-center bg-background",
+            showMenu && "bg-primary"
           )}
         >
           <Container className="flex items-center justify-between gap-4">
