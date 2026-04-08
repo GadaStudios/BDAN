@@ -52,8 +52,8 @@ export const Header = () => {
           className="fixed top-0 left-0 z-50 w-full"
         >
           <Link
-            href="/#application-process"
-            onClick={(e) => handleRouteItem(e, "/#application-process")}
+            href="/#process"
+            onClick={(e) => handleRouteItem(e, "/#process")}
             className="flex h-22 flex-1 flex-col items-start justify-center gap-4 bg-secondary px-4 py-4 md:flex-row md:items-center md:px-6"
           >
             <div className="flex items-start gap-3">

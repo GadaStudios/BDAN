@@ -34,14 +34,14 @@ export default function Page() {
         data-section="program"
         className="py-20 md:py-24 lg:py-32"
       />
+      <ApplicationSection
+        id="process"
+        data-section="process"
+        className="py-20 md:py-24 lg:py-32"
+      />
       <TeamSection
         id="teams"
         data-section="teams"
-        className="py-20 md:py-24 lg:py-32"
-      />
-      <ApplicationSection
-        id="application-process"
-        data-section="application-process"
         className="py-20 md:py-24 lg:py-32"
       />
       <FAQSection

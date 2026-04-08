@@ -77,7 +77,7 @@ export const Footer = () => {
                   </div>
                 </div>
                 <div className="py-6">
-                  <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 xl:grid-cols-8">
                     {NAVIGATION_ROUTES.map((route) => {
                       const isActive = getIsActive(route.value)
 
