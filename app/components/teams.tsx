@@ -29,7 +29,7 @@ const teamMembers: TeamMemberSection = {
       socials: [
         {
           name: "X (Twitter)",
-          handle: "https://x.com",
+          handle: "/",
           icon: (props: SVGProps<SVGSVGElement>) => (
             <svg
               viewBox="0 0 18 17"
@@ -43,7 +43,7 @@ const teamMembers: TeamMemberSection = {
         },
         {
           name: "LinkedIn",
-          handle: "https://linkedin.com",
+          handle: "/",
           icon: (props: SVGProps<SVGSVGElement>) => (
             <svg
               viewBox="0 0 17 17"
@@ -57,7 +57,7 @@ const teamMembers: TeamMemberSection = {
         },
         {
           name: "Nostr",
-          handle: "https://wtfisthisplatform.com",
+          handle: "/",
           icon: (props: SVGProps<SVGSVGElement>) => (
             <svg
               {...props}
@@ -99,7 +99,7 @@ const teamMembers: TeamMemberSection = {
       socials: [
         {
           name: "X (Twitter)",
-          handle: "https://x.com",
+          handle: "/",
           icon: (props: SVGProps<SVGSVGElement>) => (
             <svg
               viewBox="0 0 18 17"
@@ -113,7 +113,7 @@ const teamMembers: TeamMemberSection = {
         },
         {
           name: "LinkedIn",
-          handle: "https://linkedin.com",
+          handle: "/",
           icon: (props: SVGProps<SVGSVGElement>) => (
             <svg
               viewBox="0 0 17 17"
@@ -127,7 +127,7 @@ const teamMembers: TeamMemberSection = {
         },
         {
           name: "Nostr",
-          handle: "https://wtfisthisplatform.com",
+          handle: "/",
           icon: (props: SVGProps<SVGSVGElement>) => (
             <svg
               {...props}
@@ -171,7 +171,7 @@ const teamMembers: TeamMemberSection = {
   //     socials: [
   //       {
   //         name: "X (Twitter)",
-  //         handle: "https://x.com",
+  //         handle: "/",
   //         icon: (props: SVGProps<SVGSVGElement>) => (
   //           <svg
   //             viewBox="0 0 18 17"
@@ -185,7 +185,7 @@ const teamMembers: TeamMemberSection = {
   //       },
   //       {
   //         name: "LinkedIn",
-  //         handle: "https://linkedin.com",
+  //         handle: "/",
   //         icon: (props: SVGProps<SVGSVGElement>) => (
   //           <svg
   //             viewBox="0 0 17 17"
@@ -199,7 +199,7 @@ const teamMembers: TeamMemberSection = {
   //       },
   //       {
   //         name: "Nostr",
-  //         handle: "https://wtfisthisplatform.com",
+  //         handle: "/",
   //         icon: (props: SVGProps<SVGSVGElement>) => (
   //           <svg
   //             {...props}
@@ -241,7 +241,7 @@ const teamMembers: TeamMemberSection = {
   //     socials: [
   //       {
   //         name: "X (Twitter)",
-  //         handle: "https://x.com",
+  //         handle: "/",
   //         icon: (props: SVGProps<SVGSVGElement>) => (
   //           <svg
   //             viewBox="0 0 18 17"
@@ -255,7 +255,7 @@ const teamMembers: TeamMemberSection = {
   //       },
   //       {
   //         name: "LinkedIn",
-  //         handle: "https://linkedin.com",
+  //         handle: "/",
   //         icon: (props: SVGProps<SVGSVGElement>) => (
   //           <svg
   //             viewBox="0 0 17 17"
@@ -269,7 +269,7 @@ const teamMembers: TeamMemberSection = {
   //       },
   //       {
   //         name: "Nostr",
-  //         handle: "https://wtfisthisplatform.com",
+  //         handle: "/",
   //         icon: (props: SVGProps<SVGSVGElement>) => (
   //           <svg
   //             {...props}
@@ -311,7 +311,7 @@ const teamMembers: TeamMemberSection = {
   //     socials: [
   //       {
   //         name: "X (Twitter)",
-  //         handle: "https://x.com",
+  //         handle: "/",
   //         icon: (props: SVGProps<SVGSVGElement>) => (
   //           <svg
   //             viewBox="0 0 18 17"
@@ -325,7 +325,7 @@ const teamMembers: TeamMemberSection = {
   //       },
   //       {
   //         name: "LinkedIn",
-  //         handle: "https://linkedin.com",
+  //         handle: "/",
   //         icon: (props: SVGProps<SVGSVGElement>) => (
   //           <svg
   //             viewBox="0 0 17 17"
@@ -339,7 +339,7 @@ const teamMembers: TeamMemberSection = {
   //       },
   //       {
   //         name: "Nostr",
-  //         handle: "https://wtfisthisplatform.com",
+  //         handle: "/",
   //         icon: (props: SVGProps<SVGSVGElement>) => (
   //           <svg
   //             {...props}
