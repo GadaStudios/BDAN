@@ -92,7 +92,7 @@ export const CTASection = (
                     variant: "outline",
                   })}
                 >
-                  John Discord
+                  Join Discord
                 </Link>
               </div>
             </div>

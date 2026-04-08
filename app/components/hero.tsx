@@ -42,7 +42,7 @@ export const HeroSection = (
                   variant: "outline",
                 })}
               >
-                John Discord
+                Join Discord
               </Link>
             </div>
           </div>

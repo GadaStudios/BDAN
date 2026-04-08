@@ -118,7 +118,7 @@ export const ProgramSection = (
                       variant: "outline",
                     })}
                   >
-                    John Discord
+                    Join Discord
                   </Link>
                 </div>
               </div>
