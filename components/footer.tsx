@@ -2,9 +2,9 @@
 import Link from "next/link"
 import { Route } from "next"
 import Image from "next/image"
-import { FaGithub, FaLinkedin } from "react-icons/fa6"
 import { RiTwitterXLine } from "react-icons/ri"
-import { FaDiscord, FaYoutube } from "react-icons/fa"
+import { IoLogoGithub } from "react-icons/io5"
+import { FaLinkedinIn, FaDiscord, FaYoutube } from "react-icons/fa6"
 
 import { cn } from "@/lib/utils"
 import { Container } from "./container"
@@ -31,13 +31,14 @@ const footerSocials = [
   },
   {
     title: "Github",
-    icon: FaGithub,
+    icon: IoLogoGithub,
     url: "https://github.com/GadaStudios/BDAN",
   },
-  // {
-  //   title: "LinkedIn",
-  //   icon: FaLinkedin,
-  // },
+  {
+    title: "LinkedIn",
+    icon: FaLinkedinIn,
+    url: "https://www.linkedin.com/company/bitcoin-design-adoption-network/",
+  },
 ]
 
 export const Footer = () => {
