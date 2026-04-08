@@ -54,7 +54,7 @@ export const Header = () => {
           <Link
             href="/#process"
             onClick={(e) => handleRouteItem(e, "/#process")}
-            className="flex h-22 flex-1 flex-col items-start justify-center gap-4 bg-secondary px-4 py-4 md:flex-row md:items-center md:px-6"
+            className="flex h-22 flex-1 cursor-default flex-col items-start justify-center gap-4 bg-secondary px-4 py-4 md:flex-row md:items-center md:px-6"
           >
             <div className="flex items-start gap-3">
               <BsMegaphone className="mt-0.5 size-4 text-accent-light-active md:mt-1" />
@@ -116,7 +116,7 @@ export const Header = () => {
                       size: "sm",
                       className:
                         !isActive &&
-                        "font-normal text-primary-dark-active hover:border-primary-dark-hover",
+                        "text-primary-dark-active hover:border-primary-dark-hover",
                     })}
                   >
                     {route.label}

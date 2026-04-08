@@ -2,7 +2,7 @@
 import Link from "next/link"
 import { Route } from "next"
 import Image from "next/image"
-import { FaGithub } from "react-icons/fa6"
+import { FaGithub, FaLinkedin } from "react-icons/fa6"
 import { RiTwitterXLine } from "react-icons/ri"
 import { FaDiscord, FaYoutube } from "react-icons/fa"
 
@@ -32,6 +32,10 @@ const footerSocials = [
     title: "Github",
     icon: FaGithub,
     url: "https://github.com/GadaStudios/BDAN",
+  },
+  {
+    title: "LinkedIn",
+    icon: FaLinkedin,
   },
 ]
 

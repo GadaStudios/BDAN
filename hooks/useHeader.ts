@@ -79,24 +79,30 @@ export const useHeader = () => {
   }, [isExpired])
 
   // --- intersectionObserver logic
+  const sectionHeights = React.useRef<Record<string, number>>({})
+
   React.useEffect(() => {
     const sections = document.querySelectorAll("[data-section]")
     if (!sections.length) return
 
     const observer = new IntersectionObserver(
       (entries) => {
-        let best: string | null = null
-        let bestRatio = 0
-
         for (const entry of entries) {
-          if (!entry.isIntersecting) continue
-
           const section = entry.target.getAttribute("data-section")
           if (!section) continue
 
-          if (entry.intersectionRatio > bestRatio) {
+          sectionHeights.current[section] = entry.isIntersecting
+            ? entry.intersectionRect.height
+            : 0
+        }
+
+        let best: string | null = null
+        let maxHeight = 0
+
+        for (const section in sectionHeights.current) {
+          if (sectionHeights.current[section] > maxHeight) {
+            maxHeight = sectionHeights.current[section]
             best = section
-            bestRatio = entry.intersectionRatio
           }
         }
 
@@ -105,8 +111,8 @@ export const useHeader = () => {
         }
       },
       {
-        threshold: [0.25, 0.5, 0.75],
-        rootMargin: "-20% 0px -40% 0px",
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+        rootMargin: "-10% 0px -20% 0px",
       }
     )
 
