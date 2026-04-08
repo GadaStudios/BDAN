@@ -35,7 +35,11 @@ const applicationProcess = [
 
 export const ApplicationSection = () => {
   return (
-    <section id="application-process" className="py-20 md:py-24 lg:py-32">
+    <section
+      id="application-process"
+      data-section="application-process"
+      className="py-20 md:py-24 lg:py-32"
+    >
       <Container className="relative">
         <div className="relative h-10 bg-background before:absolute before:left-[13%] before:h-full before:w-[50%] before:bg-secondary md:h-16" />
         <div className="bg-secondary">

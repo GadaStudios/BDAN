@@ -4,6 +4,7 @@ import { buttonVariants } from "@/ui/button"
 import { Container } from "@/components/container"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
+import { useHeader } from "@/hooks/useHeader"
 
 const ctaOccasions = [
   {
@@ -29,8 +30,14 @@ const ctaOccasions = [
 ]
 
 export const CTASection = () => {
+  const { handleRouteItem } = useHeader()
+
   return (
-    <section id="community" className="pt-20 md:pt-24 lg:pt-32">
+    <section
+      id="community"
+      data-section="community"
+      className="pt-20 md:pt-24 lg:pt-32"
+    >
       <div className="relative h-10 bg-background before:absolute before:left-[10%] before:h-full before:w-[50%] before:bg-[#F9F3E7] md:h-16" />
       <div className="bg-[#F9F3E7]">
         <Container
@@ -71,8 +78,8 @@ export const CTASection = () => {
               </p>
               <div className="mx-auto flex items-center gap-4 sm:gap-6 md:gap-8">
                 <Link
-                  target="_blank"
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSfpP2qCe3th-R9550jbKRukFuvdk7g50OQlZeaLdTQ63XfkgQ/viewform?usp=publish-editor"
+                  href="/#application-process"
+                  onClick={(e) => handleRouteItem(e, "/#application-process")}
                   className={buttonVariants({
                     className: "flex-1",
                     variant: "default",

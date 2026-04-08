@@ -1,5 +1,5 @@
 "use client"
-import { useCountdown } from "@/hooks/countdown"
+import { useCountdown } from "@/hooks/useCountdown"
 import { TARGET_DATE } from "@/lib/constants"
 
 export const Countdown = () => {

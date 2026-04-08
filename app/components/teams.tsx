@@ -361,7 +361,11 @@ const teamMembers = {
 
 export const TeamSection = () => {
   return (
-    <section id="teams" className="py-20 md:py-24 lg:py-32">
+    <section
+      id="teams"
+      data-section="teams"
+      className="py-20 md:py-24 lg:py-32"
+    >
       <Container size="sm">
         <div className="flex flex-col gap-[120px]">
           <div className="flex flex-col gap-12 md:gap-14 lg:gap-16">

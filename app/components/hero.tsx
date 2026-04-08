@@ -1,18 +1,21 @@
 "use client"
 import Link from "next/link"
 import Image from "next/image"
-import { Button, buttonVariants } from "@/ui/button"
+import { buttonVariants } from "@/ui/button"
 import { Container } from "@/components/container"
-import { useCountdown } from "@/hooks/countdown"
+import { useCountdown } from "@/hooks/useCountdown"
 import { TARGET_DATE } from "@/lib/constants"
 import { cn } from "@/lib/utils"
+import { useHeader } from "@/hooks/useHeader"
 
 export const HeroSection = () => {
   const { isExpired } = useCountdown(TARGET_DATE)
+  const { handleRouteItem } = useHeader()
 
   return (
     <section
       id="home"
+      data-section="home"
       className={cn(
         "py-[128px] md:py-[184px]",
         !isExpired && "pt-[226px] md:pt-[272px]"
@@ -32,8 +35,8 @@ export const HeroSection = () => {
 
             <div className="flex items-center gap-4 sm:gap-6 md:gap-8">
               <Link
-                target="_blank"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSfpP2qCe3th-R9550jbKRukFuvdk7g50OQlZeaLdTQ63XfkgQ/viewform?usp=publish-editor"
+                href="/#application-process"
+                onClick={(e) => handleRouteItem(e, "/#application-process")}
                 className={buttonVariants({
                   className: "flex-1",
                   variant: "default",

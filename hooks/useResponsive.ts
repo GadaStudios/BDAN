@@ -1,3 +1,4 @@
+"use client"
 import React from "react"
 
 export function useResponsiveJsx(breakpoints: Array<number>): number {

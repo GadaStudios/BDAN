@@ -1,5 +1,6 @@
 "use client"
 import { Container } from "@/components/container"
+import { useHeader } from "@/hooks/useHeader"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/ui/button"
 import Image from "next/image"
@@ -30,8 +31,14 @@ const programWeeksInfo = [
 ]
 
 export const ProgramSection = () => {
+  const { handleRouteItem } = useHeader()
+
   return (
-    <section id="program" className="py-20 md:py-24 lg:py-32">
+    <section
+      id="program"
+      data-section="program"
+      className="py-20 md:py-24 lg:py-32"
+    >
       <Container size="sm">
         <div className="flex flex-col gap-20">
           <div className="flex flex-col gap-12 md:gap-14 lg:gap-16">
@@ -97,8 +104,8 @@ export const ProgramSection = () => {
 
                 <div className="flex items-center gap-4 sm:gap-6 md:gap-8">
                   <Link
-                    target="_blank"
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSfpP2qCe3th-R9550jbKRukFuvdk7g50OQlZeaLdTQ63XfkgQ/viewform?usp=publish-editor"
+                    href="/#application-process"
+                    onClick={(e) => handleRouteItem(e, "/#application-process")}
                     className={buttonVariants({
                       className: "flex-1",
                       variant: "default",

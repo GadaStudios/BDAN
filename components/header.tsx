@@ -1,114 +1,43 @@
 "use client"
-import React from "react"
 import Link from "next/link"
 import { Route } from "next"
 import Image from "next/image"
 import { GoMegaphone } from "react-icons/go"
-import { usePathname } from "next/navigation"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 
 import { Container } from "./container"
 import { cn, isActivePath } from "@/lib/utils"
-import { useCountdown } from "@/hooks/countdown"
 import { siteConfig } from "@/config/site.config"
 import { Button, buttonVariants } from "@/ui/button"
-import { NAVIGATION_ROUTES, TARGET_DATE } from "@/lib/constants"
+import { NAVIGATION_ROUTES } from "@/lib/constants"
+import { useHeader } from "@/hooks/useHeader"
 
 export const Header = () => {
-  const pathname = usePathname()
+  const {
+    pathname,
+    showMenu,
+    setShowMenu,
+    showBanner,
+    bannerHeight,
+    bannerRef,
+    isExpired,
+    activeSection,
+    mobileActive,
+    handleRouteItem,
+  } = useHeader()
 
-  const { isExpired } = useCountdown(TARGET_DATE)
-  const [hash, setHash] = React.useState<string>("")
-  const [showMenu, setShowMenu] = React.useState<boolean>(false) // TODO: change this to false
-  const [showBanner, setShowBanner] = React.useState<boolean>(true)
-  const [bannerHeight, setBannerHeight] = React.useState<number>(88) // fallback height
-  const bannerRef = React.useRef<HTMLDivElement>(null)
-
-  React.useEffect(() => {
-    const updateHash = () => setHash(window.location.hash)
-
-    window.addEventListener("hashchange", updateHash)
-    updateHash()
-
-    return () => window.removeEventListener("hashchange", updateHash)
-  }, [])
-
-  React.useEffect(() => {
-    if (bannerRef.current) {
-      setBannerHeight(bannerRef.current.offsetHeight)
-    }
-  }, [])
-
-  React.useEffect(() => {
-    let lastScrollY = window.scrollY
-    let ticking = false
-    const threshold = 10
-
-    const update = () => {
-      const current = window.scrollY
-      const diff = current - lastScrollY
-
-      if (Math.abs(diff) < threshold) {
-        ticking = false
-        return
-      }
-
-      setShowBanner(diff < 0) // up = show, down = hide
-
-      lastScrollY = current
-      ticking = false
+  const getIsActive = (routeValue: string, isMobile?: boolean) => {
+    if (routeValue === "/") {
+      return isMobile ? mobileActive === "home" : activeSection === ""
     }
 
-    const onScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(update)
-        ticking = true
-      }
+    if (routeValue.includes("#")) {
+      const sectionId = routeValue.split("#")[1]
+
+      return isMobile ? mobileActive === sectionId : activeSection === sectionId
     }
 
-    window.addEventListener("scroll", onScroll)
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [])
-
-  React.useEffect(() => {
-    if (isExpired) {
-      setShowBanner(false)
-    }
-  }, [isExpired])
-
-  const handleRouteItemClicked = (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-    value: string
-  ) => {
-    setShowMenu(false)
-
-    if (value.includes("#")) {
-      e.preventDefault()
-
-      const [, h] = value.split("#")
-      const el = document.getElementById(h)
-
-      if (el) {
-        // force banner to hide before scrolling
-        setShowBanner(false)
-
-        requestAnimationFrame(() => {
-          const header = document.querySelector("header")
-          const headerHeight = header?.offsetHeight ?? 88
-
-          const y =
-            el.getBoundingClientRect().top + window.scrollY - headerHeight
-
-          window.scrollTo({
-            top: y,
-            behavior: "smooth",
-          })
-        })
-      }
-
-      window.history.replaceState(null, "", `/#${h}`)
-      setHash(`#${h}`)
-    }
+    return pathname === routeValue
   }
 
   return (
@@ -125,7 +54,7 @@ export const Header = () => {
         >
           <Link
             href="/#application-process"
-            onClick={(e) => handleRouteItemClicked(e, "/#application-process")}
+            onClick={(e) => handleRouteItem(e, "/#application-process")}
             className="flex h-22 flex-1 flex-col items-start justify-center gap-4 bg-secondary px-6 py-4 md:flex-row md:items-center"
           >
             <div className="flex items-start gap-3">
@@ -162,7 +91,7 @@ export const Header = () => {
           )}
         >
           <Container className="flex items-center justify-between gap-4">
-            <Link href="/">
+            <Link href="/#home" onClick={(e) => handleRouteItem(e, "/#home")}>
               <Image
                 src="/favicon.svg"
                 alt={siteConfig.title}
@@ -176,13 +105,13 @@ export const Header = () => {
 
             <div className="hidden items-center lg:flex">
               {NAVIGATION_ROUTES.map((route) => {
-                const isActive = isActivePath(route.value, pathname, hash)
+                const isActive = getIsActive(route.value)
 
                 return (
                   <Link
                     key={route.label}
                     href={route.value as Route}
-                    onClick={(e) => handleRouteItemClicked(e, route.value)}
+                    onClick={(e) => handleRouteItem(e, route.value)}
                     className={buttonVariants({
                       variant: "ghost",
                       size: "sm",
@@ -232,13 +161,15 @@ export const Header = () => {
           <div className="absolute top-full left-0 flex h-dvh w-full lg:hidden">
             <div className="flex w-full flex-col bg-primary px-5 py-4 md:px-8">
               {NAVIGATION_ROUTES.map((route) => {
-                const isActive = isActivePath(route.value, pathname, hash)
+                const isActive = getIsActive(route.value, true)
 
                 return (
                   <Link
                     key={route.label}
                     href={route.value as Route}
-                    onClick={(e) => handleRouteItemClicked(e, route.value)}
+                    onClick={(e) =>
+                      handleRouteItem(e, route.value, { mobile: true })
+                    }
                     className={cn(
                       "border border-transparent p-4 font-normal tracking-wide text-primary-dark-active hover:border-border",
                       {

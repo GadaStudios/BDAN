@@ -1,5 +1,5 @@
 export const NAVIGATION_ROUTES = [
-  { label: "Home", value: "/" },
+  { label: "Home", value: "/#home" },
   { label: "About Us", value: "/#about" },
   { label: "Program", value: "/#program" },
   { label: "Team", value: "/#teams" },
