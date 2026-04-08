@@ -2,15 +2,15 @@
 import Link from "next/link"
 import { Route } from "next"
 import Image from "next/image"
-import { GoMegaphone } from "react-icons/go"
 import { motion } from "framer-motion"
+import { GoMegaphone } from "react-icons/go"
 
+import { cn } from "@/lib/utils"
 import { Container } from "./container"
-import { cn, isActivePath } from "@/lib/utils"
-import { siteConfig } from "@/config/site.config"
-import { Button, buttonVariants } from "@/ui/button"
-import { NAVIGATION_ROUTES } from "@/lib/constants"
 import { useHeader } from "@/hooks/useHeader"
+import { siteConfig } from "@/config/site.config"
+import { NAVIGATION_ROUTES } from "@/lib/constants"
+import { Button, buttonVariants } from "@/ui/button"
 
 export const Header = () => {
   const {
