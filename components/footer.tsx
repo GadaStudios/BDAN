@@ -1,18 +1,17 @@
 "use client"
-import React from "react"
 import Link from "next/link"
 import { Route } from "next"
-import { FaDiscord, FaYoutube } from "react-icons/fa"
-import { usePathname } from "next/navigation"
-
-import { Container } from "./container"
-import { cn, isActivePath } from "@/lib/utils"
-import { buttonVariants } from "@/ui/button"
-import { NAVIGATION_ROUTES } from "@/lib/constants"
 import Image from "next/image"
-import { siteConfig } from "@/config/site.config"
-import { RiTwitterXLine } from "react-icons/ri"
 import { FaGithub } from "react-icons/fa6"
+import { RiTwitterXLine } from "react-icons/ri"
+import { FaDiscord, FaYoutube } from "react-icons/fa"
+
+import { cn } from "@/lib/utils"
+import { Container } from "./container"
+import { buttonVariants } from "@/ui/button"
+import { useHeader } from "@/hooks/useHeader"
+import { siteConfig } from "@/config/site.config"
+import { NAVIGATION_ROUTES } from "@/lib/constants"
 
 const footerSocials = [
   {
@@ -37,17 +36,21 @@ const footerSocials = [
 ]
 
 export const Footer = () => {
-  const pathname = usePathname()
-  const [hash, setHash] = React.useState<string>("")
+  const { pathname, activeSection, mobileActive, handleRouteItem } = useHeader()
 
-  React.useEffect(() => {
-    const updateHash = () => setHash(window.location.hash)
+  const getIsActive = (routeValue: string, isMobile?: boolean) => {
+    if (routeValue === "/") {
+      return isMobile ? mobileActive === "home" : activeSection === ""
+    }
 
-    updateHash()
-    window.addEventListener("hashchange", updateHash)
+    if (routeValue.includes("#")) {
+      const sectionId = routeValue.split("#")[1]
 
-    return () => window.removeEventListener("hashchange", updateHash)
-  }, [])
+      return isMobile ? mobileActive === sectionId : activeSection === sectionId
+    }
+
+    return pathname === routeValue
+  }
 
   return (
     <footer className="overflow-x-clip">
@@ -76,20 +79,13 @@ export const Footer = () => {
                 <div className="py-6">
                   <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7">
                     {NAVIGATION_ROUTES.map((route) => {
-                      const isActive = isActivePath(route.value, pathname, hash)
+                      const isActive = getIsActive(route.value)
 
                       return (
                         <Link
                           key={route.label}
                           href={route.value as Route}
-                          onClick={() => {
-                            if (route.value.includes("#")) {
-                              const [, h] = route.value.split("#")
-                              setHash(`#${h}`)
-                            } else {
-                              setHash("")
-                            }
-                          }}
+                          onClick={(e) => handleRouteItem(e, route.value)}
                           className={buttonVariants({
                             variant: "ghost",
                             size: "sm",
@@ -167,12 +163,16 @@ export const Footer = () => {
             <div className="flex items-center gap-4">
               {footerSocials.map((social) => {
                 const Comp = social.url ? Link : "span"
+
                 return (
                   <Comp
                     key={social.title}
                     href={social.url as Route}
                     title={social.title}
                     target="_blank"
+                    className={cn(
+                      !social.url && "pointer-events-none opacity-50"
+                    )}
                   >
                     <social.icon className="size-6 text-accent" />
                   </Comp>

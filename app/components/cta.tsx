@@ -105,16 +105,16 @@ export const CTASection = (
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4 md:gap-8">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
             {ctaOccasions.map((oc) => (
               <div
                 key={oc.title}
                 className={cn(
-                  "flex flex-col justify-between gap-8 px-4 py-6 md:gap-12 md:px-6 md:py-8 lg:gap-14",
+                  "flex flex-col justify-between gap-8 px-4 py-6 md:gap-12 md:px-6 md:py-8",
                   oc.style
                 )}
               >
-                <p className="text-lg font-semibold md:text-xl lg:text-2xl">
+                <p className="text-base font-medium md:text-lg lg:text-xl">
                   {oc.title}
                 </p>
                 <p className="text-sm font-normal">{oc.description}</p>

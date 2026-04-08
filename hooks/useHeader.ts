@@ -44,7 +44,7 @@ export const useHeader = () => {
   React.useEffect(() => {
     let lastScrollY = window.scrollY
     let ticking = false
-    const threshold = 10
+    const threshold = 100
 
     const update = () => {
       const current = window.scrollY

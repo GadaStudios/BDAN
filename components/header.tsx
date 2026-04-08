@@ -47,7 +47,6 @@ export const Header = () => {
           ref={bannerRef}
           animate={{
             height: showBanner ? bannerHeight : 0,
-            opacity: showBanner ? 1 : 0,
           }}
           transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
           className="fixed top-0 left-0 z-50 w-full"
@@ -86,8 +85,8 @@ export const Header = () => {
       >
         <nav
           className={cn(
-            "flex h-22 items-center justify-center bg-background/90 backdrop-blur-md",
-            showMenu && "bg-primary backdrop-blur-none"
+            "flex h-22 items-center justify-center border-b border-b-border/40 bg-background md:border-transparent",
+            showMenu && "border-b-transparent bg-primary"
           )}
         >
           <Container className="flex items-center justify-between gap-4">

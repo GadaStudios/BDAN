@@ -43,7 +43,7 @@ export const ResourceSection = (
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 lg:grid-cols-3">
             {resourcesArray.map((resource) => (
               <a
                 href={resource.url}
@@ -52,12 +52,14 @@ export const ResourceSection = (
                 className="flex cursor-pointer flex-col gap-3 border border-accent bg-background p-4 text-accent shadow-[4px_8px_0_0_#000000] transition-shadow duration-100 hover:shadow-none"
               >
                 <header className="flex flex-col gap-4">
-                  <div className="relative h-[224px] w-full overflow-hidden bg-[#F9B7328F]">
+                  <div className="relative h-auto w-full overflow-hidden bg-[#F9B7328F] sm:aspect-[1.5]">
                     <Image
                       src={resource.banner}
                       alt={resource.title}
-                      fill
+                      height={224}
+                      width={324}
                       quality={100}
+                      priority
                       className="size-full origin-top object-cover"
                     />
                   </div>
