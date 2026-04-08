@@ -18,7 +18,7 @@ const applicationProcess = [
   {
     title: "Portfolio Review",
     description:
-      "We review your application, portfolio, and submitted challenge to find a fit. No gatekeeping, just real evaluation.",
+      "We review your application, portfolio, and submitted challenge to find a fit. No gate-keeping, just real evaluation.",
   },
   {
     title: "Shortlist Interview",
@@ -28,7 +28,7 @@ const applicationProcess = [
   {
     title: "Acceptance",
     description:
-      "If you’re accepted, you’ll hear back within 2 weeks of applying. Further inforamtion will be sent then. Welcome to the network!",
+      "If you’re accepted, you’ll hear back within 2 weeks of applying. Further information will be sent then. Welcome to the network!",
   },
 ]
 
