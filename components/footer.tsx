@@ -27,16 +27,17 @@ const footerSocials = [
   {
     title: "YouTube",
     icon: FaYoutube,
+    url: "https://youtube.com/@bdan_bitcoin",
   },
   {
     title: "Github",
     icon: FaGithub,
     url: "https://github.com/GadaStudios/BDAN",
   },
-  {
-    title: "LinkedIn",
-    icon: FaLinkedin,
-  },
+  // {
+  //   title: "LinkedIn",
+  //   icon: FaLinkedin,
+  // },
 ]
 
 export const Footer = () => {
