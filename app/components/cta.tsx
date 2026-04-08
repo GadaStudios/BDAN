@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image"
-import { Button, buttonVariants } from "@/ui/button"
+import { buttonVariants } from "@/ui/button"
 import { Container } from "@/components/container"
 import { cn } from "@/lib/utils"
 import Link from "next/link"

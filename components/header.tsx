@@ -5,6 +5,7 @@ import { Route } from "next"
 import Image from "next/image"
 import { GoMegaphone } from "react-icons/go"
 import { usePathname } from "next/navigation"
+import { motion, AnimatePresence } from "framer-motion"
 
 import { Container } from "./container"
 import { cn, isActivePath } from "@/lib/utils"
@@ -18,7 +19,10 @@ export const Header = () => {
 
   const { isExpired } = useCountdown(TARGET_DATE)
   const [hash, setHash] = React.useState<string>("")
-  const [showMenu, setShowMenu] = React.useState<boolean>(false)
+  const [showMenu, setShowMenu] = React.useState<boolean>(false) // TODO: change this to false
+  const [showBanner, setShowBanner] = React.useState<boolean>(true)
+  const [bannerHeight, setBannerHeight] = React.useState<number>(88) // fallback height
+  const bannerRef = React.useRef<HTMLDivElement>(null)
 
   React.useEffect(() => {
     const updateHash = () => setHash(window.location.hash)
@@ -29,145 +33,228 @@ export const Header = () => {
     return () => window.removeEventListener("hashchange", updateHash)
   }, [])
 
+  React.useEffect(() => {
+    if (bannerRef.current) {
+      setBannerHeight(bannerRef.current.offsetHeight)
+    }
+  }, [])
+
+  React.useEffect(() => {
+    let lastScrollY = window.scrollY
+    let ticking = false
+    const threshold = 10
+
+    const update = () => {
+      const current = window.scrollY
+      const diff = current - lastScrollY
+
+      if (Math.abs(diff) < threshold) {
+        ticking = false
+        return
+      }
+
+      setShowBanner(diff < 0) // up = show, down = hide
+
+      lastScrollY = current
+      ticking = false
+    }
+
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(update)
+        ticking = true
+      }
+    }
+
+    window.addEventListener("scroll", onScroll)
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
+
+  React.useEffect(() => {
+    if (isExpired) {
+      setShowBanner(false)
+    }
+  }, [isExpired])
+
+  const handleRouteItemClicked = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    value: string
+  ) => {
+    setShowMenu(false)
+
+    if (value.includes("#")) {
+      e.preventDefault()
+
+      const [, h] = value.split("#")
+      const el = document.getElementById(h)
+
+      if (el) {
+        // force banner to hide before scrolling
+        setShowBanner(false)
+
+        requestAnimationFrame(() => {
+          const header = document.querySelector("header")
+          const headerHeight = header?.offsetHeight ?? 88
+
+          const y =
+            el.getBoundingClientRect().top + window.scrollY - headerHeight
+
+          window.scrollTo({
+            top: y,
+            behavior: "smooth",
+          })
+        })
+      }
+
+      window.history.replaceState(null, "", `/#${h}`)
+      setHash(`#${h}`)
+    }
+  }
+
   return (
-    <header className="sticky top-0 left-0 z-50 w-full">
+    <>
       {!isExpired && (
-        <Link
-          href="/#application-process"
-          className="flex flex-1 flex-col items-start justify-center gap-4 bg-secondary p-6 md:flex-row md:items-center"
+        <motion.div
+          ref={bannerRef}
+          animate={{
+            height: showBanner ? bannerHeight : 0,
+            opacity: showBanner ? 1 : 0,
+          }}
+          transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+          className="fixed top-0 left-0 z-50 w-full"
         >
-          <div className="flex items-start gap-3">
-            <GoMegaphone className="mt-0.5 size-4 text-accent-light-active" />
-
-            <p className="flex-1 text-sm font-light text-primary-hover sm:text-base">
-              Applications for the pilot cohort are now open and closes on April
-              26th, 2026. The cohort kicks off on May 11th.
-            </p>
-          </div>
-
-          <Button
-            variant="outline"
-            size="sm"
-            className="hidden! h-10! bg-transparent text-background shadow-none hover:bg-accent-light-hover/30 active:bg-accent-light-active/30 md:inline-flex!"
+          <Link
+            href="/#application-process"
+            onClick={(e) => handleRouteItemClicked(e, "/#application-process")}
+            className="flex h-22 flex-1 flex-col items-start justify-center gap-4 bg-secondary px-6 py-4 md:flex-row md:items-center"
           >
-            <span>Apply Now</span>
-          </Button>
-        </Link>
-      )}
+            <div className="flex items-start gap-3">
+              <GoMegaphone className="mt-0.5 size-4 text-accent-light-active" />
 
-      <nav
-        className={cn(
-          "bg-background/90 py-6 backdrop-blur-md md:py-8",
-          showMenu && "bg-primary backdrop-blur-none"
-        )}
-      >
-        <Container className="flex h-8 items-center justify-between gap-4 md:h-[48px]">
-          <Link href="/">
-            <Image
-              src="/favicon.svg"
-              alt={siteConfig.title}
-              width={41}
-              height={48}
-              priority
-              quality={100}
-              className="h-8 w-[28] md:h-[48px] md:w-[41px]"
-            />
-          </Link>
+              <p className="flex-1 text-xs font-medium text-primary-hover sm:text-sm sm:font-light md:text-base">
+                Applications for the pilot cohort are now open and closes on
+                April 26th, 2026. The cohort kicks off on May 11th.
+              </p>
+            </div>
 
-          <div className="hidden items-center lg:flex">
-            {NAVIGATION_ROUTES.map((route) => {
-              const isActive = isActivePath(route.value, pathname, hash)
-
-              return (
-                <Link
-                  key={route.label}
-                  href={route.value as Route}
-                  onClick={() => {
-                    if (route.value.includes("#")) {
-                      const [, h] = route.value.split("#")
-                      setHash(`#${h}`)
-                    } else {
-                      setHash("")
-                    }
-                  }}
-                  className={buttonVariants({
-                    variant: "ghost",
-                    size: "sm",
-                    className:
-                      !isActive &&
-                      "font-normal text-primary-dark-active hover:border-primary-dark-hover",
-                  })}
-                >
-                  {route.label}
-                </Link>
-              )
-            })}
-          </div>
-
-          <div className="flex items-center lg:hidden">
             <Button
-              variant="ghost"
-              size="icon-sm"
-              className=""
-              onClick={() => setShowMenu(!showMenu)}
+              variant="outline"
+              size="sm"
+              className="hidden! h-10! bg-transparent text-background shadow-none hover:bg-accent-light-hover/30 active:bg-accent-light-active/30 md:inline-flex!"
             >
-              {showMenu ? (
-                <svg viewBox="0 0 32 32" fill="none" className="size-5">
-                  <path
-                    d="M6.5719 8.79086L8.45752 6.90524L25.4281 23.8758L23.5425 25.7614L6.5719 8.79086Z"
-                    className="fill-secondary-dark"
-                  />
-                  <path
-                    d="M23.5424 6.90525L25.428 8.79086L8.45742 25.7614L6.5718 23.8758L23.5424 6.90525Z"
-                    className="fill-secondary-dark"
-                  />
-                </svg>
-              ) : (
-                <svg viewBox="0 0 24 16" fill="none" className="size-5">
-                  <path
-                    d="M0 16V13.3333H24V16H0ZM12 9.33333V6.66667H24V9.33333H12ZM5.33333 2.66667V0H24V2.66667H5.33333Z"
-                    className="fill-secondary-dark"
-                  />
-                </svg>
-              )}
+              <span>Apply Now</span>
             </Button>
-          </div>
-        </Container>
-      </nav>
-
-      {showMenu && (
-        <div className="absolute top-full left-0 flex h-dvh w-full lg:hidden">
-          <div className="flex w-full flex-col bg-primary p-5 md:p-8">
-            {NAVIGATION_ROUTES.map((route) => {
-              const isActive = isActivePath(route.value, pathname, hash)
-
-              return (
-                <Link
-                  key={route.label}
-                  href={route.value as Route}
-                  onClick={() => {
-                    setShowMenu(!showMenu)
-                    if (route.value.includes("#")) {
-                      const [, h] = route.value.split("#")
-                      setHash(`#${h}`)
-                    } else {
-                      setHash("")
-                    }
-                  }}
-                  className={buttonVariants({
-                    variant: isActive ? "outline" : "ghost",
-                    size: "sm",
-                    className:
-                      "w-full justify-start bg-transparent shadow-none",
-                  })}
-                >
-                  {route.label}
-                </Link>
-              )
-            })}
-          </div>
-        </div>
+          </Link>
+        </motion.div>
       )}
-    </header>
+      <motion.header
+        animate={{
+          top: !isExpired && showBanner ? bannerHeight : 0,
+        }}
+        initial={false}
+        transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+        className="fixed left-0 z-50 w-full"
+      >
+        <nav
+          className={cn(
+            "flex h-22 items-center justify-center bg-background/90 backdrop-blur-md",
+            showMenu && "bg-primary backdrop-blur-none"
+          )}
+        >
+          <Container className="flex items-center justify-between gap-4">
+            <Link href="/">
+              <Image
+                src="/favicon.svg"
+                alt={siteConfig.title}
+                width={41}
+                height={48}
+                priority
+                quality={100}
+                className="h-8 w-[28] md:h-[48px] md:w-[41px]"
+              />
+            </Link>
+
+            <div className="hidden items-center lg:flex">
+              {NAVIGATION_ROUTES.map((route) => {
+                const isActive = isActivePath(route.value, pathname, hash)
+
+                return (
+                  <Link
+                    key={route.label}
+                    href={route.value as Route}
+                    onClick={(e) => handleRouteItemClicked(e, route.value)}
+                    className={buttonVariants({
+                      variant: "ghost",
+                      size: "sm",
+                      className:
+                        !isActive &&
+                        "font-normal text-primary-dark-active hover:border-primary-dark-hover",
+                    })}
+                  >
+                    {route.label}
+                  </Link>
+                )
+              })}
+            </div>
+
+            <div className="flex items-center lg:hidden">
+              <Button
+                variant="ghost"
+                size="icon-sm"
+                className=""
+                onClick={() => setShowMenu(!showMenu)}
+              >
+                {showMenu ? (
+                  <svg viewBox="0 0 32 32" fill="none" className="size-5">
+                    <path
+                      d="M6.5719 8.79086L8.45752 6.90524L25.4281 23.8758L23.5425 25.7614L6.5719 8.79086Z"
+                      className="fill-secondary-dark"
+                    />
+                    <path
+                      d="M23.5424 6.90525L25.428 8.79086L8.45742 25.7614L6.5718 23.8758L23.5424 6.90525Z"
+                      className="fill-secondary-dark"
+                    />
+                  </svg>
+                ) : (
+                  <svg viewBox="0 0 24 16" fill="none" className="size-5">
+                    <path
+                      d="M0 16V13.3333H24V16H0ZM12 9.33333V6.66667H24V9.33333H12ZM5.33333 2.66667V0H24V2.66667H5.33333Z"
+                      className="fill-secondary-dark"
+                    />
+                  </svg>
+                )}
+              </Button>
+            </div>
+          </Container>
+        </nav>
+
+        {showMenu && (
+          <div className="absolute top-full left-0 flex h-dvh w-full lg:hidden">
+            <div className="flex w-full flex-col bg-primary px-5 py-4 md:px-8">
+              {NAVIGATION_ROUTES.map((route) => {
+                const isActive = isActivePath(route.value, pathname, hash)
+
+                return (
+                  <Link
+                    key={route.label}
+                    href={route.value as Route}
+                    onClick={(e) => handleRouteItemClicked(e, route.value)}
+                    className={cn(
+                      "border border-transparent p-4 font-normal tracking-wide text-primary-dark-active hover:border-border",
+                      {
+                        "border-accent font-semibold text-accent hover:border-accent-active":
+                          isActive,
+                      }
+                    )}
+                  >
+                    <span>{route.label}</span>
+                  </Link>
+                )
+              })}
+            </div>
+          </div>
+        )}
+      </motion.header>
+    </>
   )
 }

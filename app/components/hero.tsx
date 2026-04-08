@@ -3,10 +3,21 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button, buttonVariants } from "@/ui/button"
 import { Container } from "@/components/container"
+import { useCountdown } from "@/hooks/countdown"
+import { TARGET_DATE } from "@/lib/constants"
+import { cn } from "@/lib/utils"
 
 export const HeroSection = () => {
+  const { isExpired } = useCountdown(TARGET_DATE)
+
   return (
-    <section id="home" className="py-10 md:py-24">
+    <section
+      id="home"
+      className={cn(
+        "py-[128px] md:py-[184px]",
+        !isExpired && "pt-[226px] md:pt-[272px]"
+      )}
+    >
       <Container size="sm" className="flex flex-col gap-23">
         <div className="flex flex-col gap-4 md:gap-10 lg:flex-row">
           <h1 className="text-[40px] leading-11 font-normal -tracking-[1.5%] text-secondary-dark md:text-6xl md:leading-18 lg:text-[80px] lg:leading-20">

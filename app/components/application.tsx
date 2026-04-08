@@ -1,10 +1,9 @@
 "use client"
 import Image from "next/image"
 import { Container } from "@/components/container"
-import { Button, buttonVariants } from "@/ui/button"
+import { buttonVariants } from "@/ui/button"
 import Link from "next/link"
 import { Countdown } from "@/components/countdown"
-import { cn } from "@/lib/utils"
 
 const applicationProcess = [
   {

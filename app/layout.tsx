@@ -8,7 +8,7 @@ import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.name} - ${siteConfig.title}`,
+    default: siteConfig.title,
     template: `${siteConfig.name} - %s`,
   },
   description: siteConfig.description,
