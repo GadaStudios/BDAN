@@ -70,7 +70,7 @@ export const CTASection = (
                 Join the Network
               </h2>
               <p className="text-primary-darker">
-                BDAN isn&apos;t just training, it&apos;s a decentralized
+                BDAN isn&apos;t just a training, it&apos;s a decentralized
                 community of designers pushing Bitcoin forward. Connect,
                 collaborate, and contribute.
               </p>

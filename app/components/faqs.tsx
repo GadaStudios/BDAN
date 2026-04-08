@@ -73,7 +73,19 @@ export const FAQSection = (
             {faqs.map((faq) => (
               <AccordionItem value={faq.question} key={faq.question}>
                 <AccordionTrigger>{faq.question}</AccordionTrigger>
-                <AccordionContent>{faq.answer}</AccordionContent>
+                <AccordionContent>
+                  <p>{faq.answer}</p>
+                  {faq.lists && (
+                    <ul className="list-item pl-2">
+                      {faq.lists.map((item) => (
+                        <li className="flex items-start gap-2" key={item}>
+                          <span>•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>

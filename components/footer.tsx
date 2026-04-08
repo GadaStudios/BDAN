@@ -160,7 +160,7 @@ export const Footer = () => {
           </div>
 
           <div className="flex flex-wrap items-center justify-between gap-4">
-            <p className="text-primary-hover">
+            <p className="tracking-wide text-primary-hover">
               Copyright 2026 - All rights reserved - {siteConfig.name}
             </p>
 
