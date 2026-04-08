@@ -80,7 +80,7 @@ export const ProgramSection = (
                   Who Can Join
                 </h2>
                 <p className="text-primary-darker">
-                  Passionate designers in Africa accross different discipline
+                  Passionate designers in Africa across different disciplines
                   (UI/UX, graphic, motion, brand/comms) who believe in Bitcoin
                   and financial sovereignty. No prior crypto experience needed,
                   just curiosity and drive. We’re starting where the need and
