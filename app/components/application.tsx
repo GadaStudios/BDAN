@@ -1,4 +1,3 @@
-"use client"
 import Image from "next/image"
 import { Container } from "@/components/container"
 import { buttonVariants } from "@/ui/button"
@@ -33,13 +32,11 @@ const applicationProcess = [
   },
 ]
 
-export const ApplicationSection = () => {
+export const ApplicationSection = (
+  props: React.ComponentPropsWithoutRef<"section">
+) => {
   return (
-    <section
-      id="application-process"
-      data-section="application-process"
-      className="py-20 md:py-24 lg:py-32"
-    >
+    <section {...props}>
       <Container className="relative">
         <div className="relative h-10 bg-background before:absolute before:left-[13%] before:h-full before:w-[50%] before:bg-secondary md:h-16" />
         <div className="bg-secondary">

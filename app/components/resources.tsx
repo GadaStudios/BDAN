@@ -26,13 +26,11 @@ const resourcesArray = [
   },
 ]
 
-export const ResourceSection = () => {
+export const ResourceSection = (
+  props: React.ComponentPropsWithoutRef<"section">
+) => {
   return (
-    <section
-      id="resources"
-      data-section="resources"
-      className="py-20 md:py-24 lg:py-32"
-    >
+    <section {...props}>
       <Container size="sm">
         <div className="flex flex-col gap-12 md:gap-14 lg:gap-16">
           <div className="flex flex-col gap-4 md:gap-8">

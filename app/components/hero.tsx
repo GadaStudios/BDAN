@@ -3,24 +3,15 @@ import Link from "next/link"
 import Image from "next/image"
 import { buttonVariants } from "@/ui/button"
 import { Container } from "@/components/container"
-import { useCountdown } from "@/hooks/useCountdown"
-import { TARGET_DATE } from "@/lib/constants"
-import { cn } from "@/lib/utils"
 import { useHeader } from "@/hooks/useHeader"
 
-export const HeroSection = () => {
-  const { isExpired } = useCountdown(TARGET_DATE)
+export const HeroSection = (
+  props: React.ComponentPropsWithoutRef<"section">
+) => {
   const { handleRouteItem } = useHeader()
 
   return (
-    <section
-      id="home"
-      data-section="home"
-      className={cn(
-        "py-[128px] md:py-[184px]",
-        !isExpired && "pt-[226px] md:pt-[272px]"
-      )}
-    >
+    <section {...props}>
       <Container size="sm" className="flex flex-col gap-23">
         <div className="flex flex-col gap-4 md:gap-10 lg:flex-row">
           <h1 className="text-[40px] leading-11 font-normal -tracking-[1.5%] text-secondary-dark md:text-6xl md:leading-18 lg:text-[80px] lg:leading-20">

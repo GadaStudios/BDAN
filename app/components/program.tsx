@@ -30,15 +30,13 @@ const programWeeksInfo = [
   },
 ]
 
-export const ProgramSection = () => {
+export const ProgramSection = (
+  props: React.ComponentPropsWithoutRef<"section">
+) => {
   const { handleRouteItem } = useHeader()
 
   return (
-    <section
-      id="program"
-      data-section="program"
-      className="py-20 md:py-24 lg:py-32"
-    >
+    <section {...props}>
       <Container size="sm">
         <div className="flex flex-col gap-20">
           <div className="flex flex-col gap-12 md:gap-14 lg:gap-16">

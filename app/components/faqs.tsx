@@ -56,9 +56,11 @@ const faqs = [
   },
 ]
 
-export const FAQSection = () => {
+export const FAQSection = (
+  props: React.ComponentPropsWithoutRef<"section">
+) => {
   return (
-    <section id="faqs" data-section="faqs" className="py-20 md:py-24 lg:py-32">
+    <section {...props}>
       <Container size="sm">
         <div className="flex flex-col gap-12 md:gap-14 lg:gap-16">
           <div className="flex flex-col gap-4 md:gap-8">

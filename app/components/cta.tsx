@@ -29,15 +29,13 @@ const ctaOccasions = [
   },
 ]
 
-export const CTASection = () => {
+export const CTASection = (
+  props: React.ComponentPropsWithoutRef<"section">
+) => {
   const { handleRouteItem } = useHeader()
 
   return (
-    <section
-      id="community"
-      data-section="community"
-      className="pt-20 md:pt-24 lg:pt-32"
-    >
+    <section {...props}>
       <div className="relative h-10 bg-background before:absolute before:left-[10%] before:h-full before:w-[50%] before:bg-[#F9F3E7] md:h-16" />
       <div className="bg-[#F9F3E7]">
         <Container
