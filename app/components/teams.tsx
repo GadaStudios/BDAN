@@ -60,7 +60,7 @@ const teamMembers: TeamMemberSection = {
     {
       name: "Yohanna Daniel",
       designation: "Co-Founder BDAN",
-      bio: "Product Designer & CTO, Gada",
+      bio: "Seasoned DesignOps and Brand strategist with 10+ years leading impactful digital solutions.",
       image: "/teams/daniel.png",
       socials: [
         {
