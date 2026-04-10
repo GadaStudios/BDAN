@@ -8,7 +8,7 @@ const applicationProcess = [
   {
     title: "Design Challenge",
     description:
-      "Depending on your track (UI/UX, Graphic/Motion, Brand/Communication), you’ll get a focused Bitcoin-native design brief.",
+      "Depending on your track (UI/UX, Motion, Graphic, and Brand Design), you’ll get a focused Bitcoin-native design brief.",
   },
   {
     title: "Submit Application",
