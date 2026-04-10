@@ -1,10 +1,12 @@
 import type { Metadata } from "next"
 
 import "./globals.css"
+import "lenis/dist/lenis.css"
 import { fontVariables } from "@/fonts"
 import { siteConfig } from "@/config/site.config"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import Provider from "./provider"
 
 export const metadata: Metadata = {
   title: {
@@ -51,9 +53,11 @@ export default function RootLayout(props: LayoutProps<"/">) {
       className={fontVariables("font-delight antialiased")}
     >
       <body>
-        <Header />
-        <main className="flex-1">{props.children}</main>
-        <Footer />
+        <Provider>
+          <Header />
+          <main className="flex-1">{props.children}</main>
+          <Footer />
+        </Provider>
       </body>
     </html>
   )
