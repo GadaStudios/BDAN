@@ -11,7 +11,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "border-accent! bg-accent text-primary shadow-[4px_8px_0_0_#000000] hover:border-accent-hover hover:bg-accent-hover hover:shadow-none active:border-accent-active active:bg-accent-active active:shadow-none disabled:border-primary disabled:bg-primary disabled:text-[#c5c7b7] disabled:shadow-none",
+          "border-accent! bg-accent text-primary shadow-[4px_8px_0_0_#000000] hover:border-accent-hover hover:bg-accent-hover hover:shadow-none active:border-accent-active active:bg-accent-active active:shadow-none disabled:border-primary disabled:opacity-80 disabled:shadow-none",
         outline:
           "border-accent! bg-background text-accent shadow-[4px_8px_0_0_#000000] hover:bg-accent-light-hover hover:shadow-none active:bg-accent-light-active active:shadow-none disabled:border-primary-dark disabled:bg-primary-light-active disabled:text-[#c5c7b7] disabled:shadow-none",
         ghost:

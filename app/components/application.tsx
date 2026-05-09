@@ -128,9 +128,12 @@ export const ApplicationSection = (
                 </div>
                 <div className="flex max-w-[495px] flex-col gap-8">
                   <p className="text-base font-normal">
-                    First Cohort starts on the 6th of April, 2026. The
+                    {/* First Cohort starts on the 6th of April, 2026. The
                     application is free, and only limited spots are available
-                    across different design tracks.
+                    across different design tracks. */}
+                    The application window for the first cohort has ended. We
+                    appreciate the overwhelming interest and enthusiasm from all
+                    applicants.
                   </p>
 
                   <div className="flex flex-wrap gap-4">
@@ -143,7 +146,7 @@ export const ApplicationSection = (
                     >
                       See Design Challenge
                     </Link>
-                    <Link
+                    {/* <Link
                       target="_blank"
                       href="https://docs.google.com/forms/d/e/1FAIpQLSfpP2qCe3th-R9550jbKRukFuvdk7g50OQlZeaLdTQ63XfkgQ/viewform?usp=publish-editor"
                       className={buttonVariants({
@@ -151,7 +154,10 @@ export const ApplicationSection = (
                       })}
                     >
                       Apply to Pilot Cohort
-                    </Link>
+                    </Link> */}
+                    <button className={buttonVariants()} disabled>
+                      Apply to Pilot Cohort
+                    </button>
                   </div>
                 </div>
               </div>
